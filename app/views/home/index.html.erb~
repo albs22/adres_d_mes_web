@@ -8,10 +8,10 @@
 
   <ul>
     <% @violations.each do |v| %>
-      <li>Date Entered: <%= v.date_entered %>
-      <li>Status: <%= v.status %>
-      <li>Type: <%= v.violation_type %></li>
-      <li>Description: <%= v.description %></li>
+      <li>Date Entered <%= v.date_entered %>
+      <li>Status <%= v.status %>
+      <li>Type <%= v.violation_type %></li>
+      <li>Description <%= v.description %></li>
     <% end %>
   </ul>  
 

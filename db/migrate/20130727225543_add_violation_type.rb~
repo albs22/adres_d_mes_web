@@ -1,0 +1,8 @@
+class AddViolationType < ActiveRecord::Migration
+  def up
+    add_column :violations, :validation_type, :float
+  end
+
+  def down
+  end
+end
