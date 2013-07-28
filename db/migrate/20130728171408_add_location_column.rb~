@@ -1,0 +1,8 @@
+class AddLocationColumn < ActiveRecord::Migration
+  def up
+    add_coulmn :violations, :violation_address, :string
+  end
+
+  def down
+  end
+end

@@ -1,0 +1,36 @@
+//# Place all the behaviors and hooks related to the matching controller here.
+//# All this logic will automatically be available in application.js.
+//# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+
+function addMarker(name, description, lattitude, longitude)
+{
+    console.log("Add Marker");
+    var markerLatLng = new google.maps.LatLng(lattitude, longitude);
+    var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>'
+
+    var infoWindow = new google.maps.InfoWindow({
+        content: infoContentString
+    });
+    
+    //var image = "../../Content/MarkerImages/m"+ position + ".png";
+    var marker = new google.maps.Marker({
+        position: markerLatLng,
+        title: name,
+        map: map,
+        //icon: image,
+        draggable: false
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infoWindow.open(map, marker);
+    });
+                
+}
+
+
+
+
+
+
+

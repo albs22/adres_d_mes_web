@@ -5,14 +5,24 @@
 
 
 <div id="violations">
-
-  <ul>
+  <%= javascript_tag "InitializeMap(32.24260, -110.95956);" %>
     <% @violations.each do |v| %>
+     <div class="vio">
+      <li>Address: <%= v.violation_address %>
       <li>Date Entered: <%= v.date_entered %>
       <li>Status: <%= v.status %>
       <li>Type: <%= v.violation_type %></li>
       <li>Description: <%= v.description %></li>
+      <%= javascript_tag "addMarker('#{v.status}','#{v.description}', #{v.lat}, #{v.long}, '#{v.photo_name}');" %>
+      <%= image_tag("/assets/#{v.photo_name}", class: "vio_imag" ) %>
+
+     </div>
+
     <% end %>
   </ul>  
+
+</div>
+
+<div id="violation_fields">
 
 </div>

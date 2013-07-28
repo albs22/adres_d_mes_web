@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'faker'
+gem 'bootstrap-sass'
 
 
 # Bundle edge Rails instead:
@@ -16,6 +17,11 @@ end
 group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Gems used only for assets and not required

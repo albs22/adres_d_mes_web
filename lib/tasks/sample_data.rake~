@@ -7,7 +7,7 @@ namespace :db do
                       description: "Discarded Couch Out By Sidewalk - Has Been There A Couple Weeks.",
                       status: "Field",
                       violation_type: "Refuse",
-                      violation_address: "1663 E 9th St",
+                      violation_location: "1663 E 9th St",
                       photo_name: "v_001_sm.jpg"
                       )
                       
