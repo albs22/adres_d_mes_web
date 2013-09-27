@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20130728171547) do
 
   create_table "violations", :force => true do |t|
     t.datetime "date_entered"
+    t.string   "type"
     t.string   "status"
     t.string   "description"
     t.datetime "created_at",        :null => false
