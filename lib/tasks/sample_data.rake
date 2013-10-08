@@ -1,4 +1,4 @@
-require 'csv'
+#require 'csv'
 namespace :db do
 
   desc "Fill DB with sample code violations"
@@ -26,14 +26,14 @@ namespace :db do
    # 1.times do |n|
    end
    
-   desc "Parse CSV To DB"
-   task csv_parse :environment do
-    file_name = violation_data.txt
-    CSV.foreach(file_name, :headers => true, :col_sep => ?;) do |row|
+  # desc "Parse CSV To DB"
+   #task csv_parse :environment do
+    #file_name = violation_data.txt
+    #CSV.foreach(file_name, :headers => true, :col_sep => ?;) do |row|
       #Violation.create!(row.to_hash)
       # GPS cordinates need to be converted
       # DB column names do not match
-    end
+    #end
    
-   end
+   #end
 end

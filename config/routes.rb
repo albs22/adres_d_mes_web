@@ -2,6 +2,10 @@ CodeViolations::Application.routes.draw do
 
 
   root to: 'home#index'
+
+  namespace 'api', :defaults => {:format => :json} do
+    resources :violations
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
