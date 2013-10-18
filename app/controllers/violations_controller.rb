@@ -31,7 +31,8 @@ class ViolationsController < ApplicationController
    
     respond_to do |format|
       if @violation.save
-        redirect_to @violation, notice: 'Violation Created.'
+       flash[:success] = "Violation Submitted!"
+        redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
       else
         render action: "new"
        end
