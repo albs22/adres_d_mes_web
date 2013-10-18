@@ -1,0 +1,28 @@
+<%= form_for(@violation) do |f| %>
+  <% if @violation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@violation.errors.count, "error") %> prohibited this violation from being saved:</h2>
+
+      <ul>
+      <% @violation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :image_before %>
+    <%= f.file_field :image_before %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Submit a violation' %>
+    <%= link_to 'Nevermind', violations_path, class: 'button' %>
+  </div>
+  
+<% end %>

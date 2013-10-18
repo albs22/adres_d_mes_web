@@ -1,7 +1,12 @@
 CodeViolations::Application.routes.draw do
+    resources :violations
 
-
-  root to: 'home#index'
+   root to: 'violations#index'
+    
+    
+   match 'violations/new'   => 'violations#new'
+   match 'violations/show'  => 'violations#show'
+   match 'violations/index' => 'violations#index'
 
   namespace 'api', :defaults => {:format => :json} do
     resources :violations

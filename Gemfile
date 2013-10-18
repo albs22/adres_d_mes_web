@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 gem 'faker'
 gem 'bootstrap-sass'
+gem 'paperclip', '~> 3.0'
+gem 'aws-sdk'
 
 
 # Bundle edge Rails instead:
