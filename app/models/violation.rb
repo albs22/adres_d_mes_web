@@ -10,4 +10,13 @@ class Violation < ActiveRecord::Base
     thumb: '130x100>',
     full: '1600x1200>'
   }
+
+  def image_before_url
+    image_before.url(:full)
+  end
+
+  def image_after_url
+    image_after.url(:full)
+  end
+
 end
