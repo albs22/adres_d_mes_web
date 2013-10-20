@@ -11,9 +11,23 @@ class Api::ViolationsController < ApplicationController
   end
 
   def create
-    @violation = Violation.new(params[:user])
+
+     
+ #    params.delete :_dc
+#     params.delete :format
+     params[:violation].delete(:image_before_url)
+     @violation = Violation.new(params[:violation])
+#     @violation = Violation.new(params[:violation])
+#     @violation = Violation.new(params[:violation].delete(:id))
+     #    @violation = Violation.new(params.except!(:id))
+#    @violation = Violation.new(params[:violation].delete(:id))
+   # @violation = Violation.new
+   # @violation.attributes(params[:violation].except(:id))
+#    @violation.lat = params[:violation][:lat]
+#    @violation.long = params[:violation][:long]
+#    @violation.violation_type = params[:violation][:violation_type]
     respond_to do |format|
-      if @user.save
+      if @violation.save
         format.json { render json: 'Success' }
       else
         format.json { render json: 'Fail' }

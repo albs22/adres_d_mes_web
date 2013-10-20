@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(:version => 20131018034513) do
     t.datetime "updated_at",                :null => false
     t.float    "lat"
     t.float    "long"
-    t.string   "violation_type"
     t.string   "violation_address"
     t.string   "photo_name"
+    t.string   "violation_type"
     t.string   "image_before_file_name"
     t.string   "image_before_content_type"
     t.integer  "image_before_file_size"
