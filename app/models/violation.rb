@@ -1,5 +1,5 @@
 class Violation < ActiveRecord::Base      
-  attr_accessible :lat, :long, :date_entered, :date_closed, :description, :status, :violation_type, :image_before, :image_after, :violation_address
+  attr_accessible :lat, :lng, :date_entered, :date_closed, :description, :status, :violation_type, :image_before, :image_after, :violation_address
 
   attr_protected :id
 
@@ -13,12 +13,20 @@ class Violation < ActiveRecord::Base
     full: '1600x1200>'
   }
 
-  def image_before_url
+  def image_before_url_f
     image_before.url(:full)
   end
 
-  def image_after_url
+  def image_before_url_t
+    image_before.url(:thumb)
+  end
+
+  def image_after_url_f
     image_after.url(:full)
+  end
+
+  def image_after_url_t
+    image_after.url(:thumb)
   end
 
 end
