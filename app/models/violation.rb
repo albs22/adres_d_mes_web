@@ -1,7 +1,9 @@
 class Violation < ActiveRecord::Base      
-  attr_accessible :lat, :lng, :date_entered, :date_closed, :description, :status, :violation_type, :image_before, :image_after, :violation_address
+  attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 
+  :status, :violation_address, :violation_type, :image_before, :image_after
 
   attr_protected :id
+  
 
   has_attached_file :image_before, styles: {
     thumb: '130x100>',
@@ -28,5 +30,6 @@ class Violation < ActiveRecord::Base
   def image_after_url_t
     image_after.url(:thumb)
   end
+
 
 end

@@ -34,8 +34,8 @@ class ViolationsController < ApplicationController
        flash[:success] = "Violation Submitted!"
         redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
       else
-        render action: "new"
-       end
+        redirect_to index
+      end
     end
   end
 

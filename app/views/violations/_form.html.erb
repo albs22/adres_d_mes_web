@@ -10,15 +10,53 @@
       </ul>
     </div>
   <% end %>
+  
+  
+  
+  <div class="field">
+    <%= f.label :Latitude %>
+    <%= f.text_field :lat %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Longitude %>
+    <%= f.text_field :lng %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :violation_type %>
+  </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :Description %>
     <%= f.text_field :description %>
   </div>
+  
+  <div class="field">
+    <%= f.label :Violation_address %>
+    <%= f.text_field :violation_address %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :Status %>
+    <%= f.text_field :status %>
+  </div>
+ 
+
+  
   <div class="field">
     <%= f.label :image_before %>
     <%= f.file_field :image_before %>
   </div>
+  
+  <div class="field">
+    <%= f.label :image_after %>
+    <%= f.file_field :image_after %>
+  </div>
+   
+  
+  <br />
   
   <div class="actions">
     <%= f.submit 'Submit a violation' %>
