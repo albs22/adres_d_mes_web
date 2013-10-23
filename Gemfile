@@ -5,6 +5,7 @@ gem 'faker'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
+gem 'taps'
 
 
 # Bundle edge Rails instead:
