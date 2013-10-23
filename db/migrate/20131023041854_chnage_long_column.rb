@@ -1,7 +1,7 @@
 class ChnageLongColumn < ActiveRecord::Migration
   def up
     remove_column :violations, :long, :float
-    add_column :violations, :lng, :float
+    remove_column :violations, :lng, :float
   end
 
   def down

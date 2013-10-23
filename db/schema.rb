@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131021002720) do
+ActiveRecord::Schema.define(:version => 20131023042911) do
 
   create_table "violations", :force => true do |t|
     t.datetime "date_entered"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(:version => 20131021002720) do
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
     t.float    "lat"
-    t.float    "lng"
     t.string   "violation_type"
     t.string   "violation_address"
     t.string   "photo_name"
@@ -33,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20131021002720) do
     t.string   "image_after_content_type"
     t.integer  "image_after_file_size"
     t.datetime "image_after_updated_at"
+    t.float    "lng"
   end
 
 end
