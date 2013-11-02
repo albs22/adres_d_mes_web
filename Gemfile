@@ -5,8 +5,7 @@ gem 'faker'
 gem 'bootstrap-sass'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
-gem 'taps'
-
+gem 'will_paginate'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,10 +13,11 @@ gem 'taps'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'sqlite3'
+  gem 'pg'
 end
 
 group :test do
+  gem 'pg'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
 end
