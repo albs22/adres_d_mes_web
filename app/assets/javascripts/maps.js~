@@ -16,15 +16,44 @@ $ ->
     InitializeMap(32.22, -110.972);
   });
   */
+  var map;
   
-  
-  
-function InitializeMap(lat, lng) {
+function initializeFormMap(lat, lng, targetId) {
 
     var latlng = new google.maps.LatLng(lat, lng);
-    var myOptions = { zoom: 13, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    var myOptions = { zoom: 13, center: latlng, mapTypeId:          google.maps.MapTypeId.ROADMAP };
+    map = new google.maps.Map(document.getElementById(targetId), myOptions);
+    
+     google.maps.event.addListener(map, 'click', function (event) {
+        addGenericMarker(event.latLng);
+        
+        //populate for lat, lng form fields
+        document.getElementById('violation_lat').value =  RoundLatLng(event.latLng.lat());
+        document.getElementById('violation_lng').value = RoundLatLng(event.latLng.lng());
+     });
 }
+
+
+function addGenericMarker(location) {
+  if (marker) {
+        marker.setPosition(location);
+    } else {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+}
+
+function RoundLatLng(latLng) {
+    //GPS accuracy 6 places = .111 m
+    var decimalPlaces = 6;
+    return latLng.toFixed(decimalPlaces);
+}
+
+
+
+
 
 
 function addMarker(name, description, lattitude, longitude, image_path)
@@ -33,7 +62,7 @@ function addMarker(name, description, lattitude, longitude, image_path)
     console.log("Add Marker");
      var image ="/assets/" + image_path
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
-    var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">
+    var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
 
     var infoWindow = new google.maps.InfoWindow({
         content: infoContentString

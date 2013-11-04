@@ -3,10 +3,10 @@ class ViolationsController < ApplicationController
   def index
     @violations = Violation.all
 
-    respond_to do |format|
-      format.html # index.html.erb
+# respond_to do |format|
+#     format.html # index.html.erb
       
-    end
+#   end
   end
   
    def show
@@ -29,14 +29,15 @@ class ViolationsController < ApplicationController
   def create
     @violation = Violation.new(params[:violation])
    
-    respond_to do |format|
+#   respond_to do |format|
       if @violation.save
-       flash[:success] = "Violation Submitted!"
-        redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
+        flash[:success] = "Violation Submitted!"
+  # redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
+        redirect_to root_path
       else
-        redirect_to index
+         redirect_to :action => "new"
       end
-    end
+#   end
   end
 
 

@@ -16,15 +16,44 @@ $ ->
     InitializeMap(32.22, -110.972);
   });
   */
+  var map, marker;
   
-  
-  
-function InitializeMap(lat, lng) {
+function initializeFormMap(lat, lng, targetId) {
 
     var latlng = new google.maps.LatLng(lat, lng);
-    var myOptions = { zoom: 13, center: latlng, mapTypeId: google.maps.MapTypeId.ROADMAP };
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    var myOptions = { zoom: 13, center: latlng, mapTypeId:          google.maps.MapTypeId.ROADMAP };
+    map = new google.maps.Map(document.getElementById(targetId), myOptions);
+    
+     google.maps.event.addListener(map, 'click', function (event) {
+        addGenericMarker(event.latLng);
+        
+        //populate for lat, lng form fields
+        document.getElementById('violation_lat').value =  RoundLatLng(event.latLng.lat());
+        document.getElementById('violation_lng').value = RoundLatLng(event.latLng.lng());
+     });
 }
+
+
+function addGenericMarker(location) {
+  if (marker) {
+        marker.setPosition(location);
+    } else {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+}
+
+function RoundLatLng(latLng) {
+    //GPS accuracy 6 places = .111 m
+    var decimalPlaces = 6;
+    return latLng.toFixed(decimalPlaces);
+}
+
+
+
+
 
 
 function addMarker(name, description, lattitude, longitude, image_path)
