@@ -13,7 +13,8 @@ gem 'will_paginate'
 
 group :test, :development do
   gem 'rspec-rails'
-  gem 'pg'
+#  gem 'pg'
+  gem 'sqlite3'
 end
 
 group :test do
