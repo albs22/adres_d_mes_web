@@ -6,12 +6,12 @@ class Violation < ActiveRecord::Base
   
 
   has_attached_file :image_before, styles: {
-    thumb: '130x100>',
+    thumb: '150x120>',
     full: '1600x1200>'
   }
 
   has_attached_file :image_after, styles: {
-    thumb: '130x100>',
+    thumb: '150x120>',
     full: '1600x1200>'
   }
 
