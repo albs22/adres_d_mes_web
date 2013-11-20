@@ -2,3 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* Edit form image styles */
+.img-edit-container {
+ float: left;
+  width: 100%;
+  display: block;
+  clear: both;
+}
+
+.img-edit-thumb
+{
+  float: left;
+}
+
+.img-edit-field {
+  float: left;
+  width: 50%;
+  margin-top: 25px;
+}
+
+.img-form-container{
+  height: 200px;
+}
+
+
+

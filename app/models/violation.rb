@@ -8,12 +8,12 @@ class Violation < ActiveRecord::Base
   has_attached_file :image_before, styles: {
     thumb: '150x120>',
     full: '1600x1200>'
-  }
+  }, :default_url => '/images/missing_:style.png'
 
   has_attached_file :image_after, styles: {
     thumb: '150x120>',
     full: '1600x1200>'
-  }
+  }, :default_url => '/images/missing_:style.png'
 
   def image_before_url_f
     image_before.url(:full)

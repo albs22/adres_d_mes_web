@@ -30,12 +30,36 @@
   
     <%= f.label :Status %>
     <%= f.select :status, [["Its a Mess", "open"], ["Cleaned Up", "closed"]] %>
-  
-    <%= f.label :image_before %>
-    <%= f.file_field :image_before %>
-  
-    <%= f.label :image_after %>
-    <%= f.file_field :image_after %>
+    
+    <div class='img-form-container'>
+    
+    
+      <div class='img-edit-container'>
+      <% if current_page?(action: 'edit') %>
+        <div class='img-edit-thumb'>
+        <%= image_tag @violation.image_before.url(:thumb) %>
+        </div>
+      <% end %>
+    
+      <div class='img-edit-field'>
+        <%= f.label :image_before %>
+        <%= f.file_field :image_before %>
+      </div>
+      </div>
+      
+       <div class='img-edit-container'>
+      <% if current_page?(action: 'edit') %>
+        <div class='img-edit-thumb'>
+        <%= image_tag @violation.image_after.url(:thumb) %>
+        </div>
+      <% end %>
+    
+      <div class='img-edit-field'>
+        <%= f.label :image_after %>
+        <%= f.file_field :image_after %>
+      </div>
+      </div
+    </div>
    
   
   <br />

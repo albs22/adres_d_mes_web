@@ -35,6 +35,15 @@ CodeViolations::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'address-the-mess',
+      :access_key_id => 'AKIAJHZPBPJN5FJORJWQ',
+      :secret_access_key => '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',
+  }
+}
+  
 
 
  

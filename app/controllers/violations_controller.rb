@@ -24,6 +24,11 @@ class ViolationsController < ApplicationController
       format.html
     end
   end
+  
+  #GET /violations/1/edit
+  def edit
+    @violation = Violation.find(params[:id])
+  end
 
   # POST /vioaltions
   def create
@@ -39,6 +44,22 @@ class ViolationsController < ApplicationController
       end
 #   end
   end
+  
+  #PUT /violations/1
+  def update
+    @violation = Violation.find(parama[:id])
+      
+    if @violation.update_attribute(params[:friend])
+      redirect_to @violation, notice: 'Mess was successfully updated.' 
+    else
+      render action: "edit"
+    end
+  end
+  
+  
+  
+  
+  
 
 
 end
