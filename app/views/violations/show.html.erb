@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @violation.description %></h2>
+<p>Address: <%= @violation.violation_address %></p>
   <%= image_tag @violation.image_before.url(:full) %>
 
 <div class="show actions">
