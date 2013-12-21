@@ -14,6 +14,8 @@ class Api::ViolationsController < ApplicationController
 
      
       remove_unused_params(params[:violation])
+      base64Img = params[:violation][:image_before]
+      params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img)
  #    params.delete :_dc
 #     params.delete :format
 # params[:violation].delete(:image_before_url)
