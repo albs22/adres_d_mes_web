@@ -1,4 +1,6 @@
 CodeViolations::Application.routes.draw do
+  get "users/new"
+
     resources :violations
 
    root to: 'violations#index'
