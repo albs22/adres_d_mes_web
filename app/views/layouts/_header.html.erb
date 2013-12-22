@@ -1,0 +1,22 @@
+<header class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<img src="/assets/header-logo.png" alt="ADM Logo" />			
+			<%= link_to "Address D Mess", root_path, id: "header-title" %>
+			<nav>
+				<ul class="nav pull-right">
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Messes", mess_path %></li>
+					<li><%= link_to "Events", event_path %></li>
+					<li><%= link_to "Submit a Mess", submit_path %></li>
+					<% if signed_in? %>
+						<li><%= link_to "Manage", manage_path %></li>
+						<li><%= link_to "Sign out", signout_path %></li>
+					<% else %>
+						<li><%= link_to "Sign In", signin_path %></li>
+					<% end %>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	</header>
