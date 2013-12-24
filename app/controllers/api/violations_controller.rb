@@ -13,13 +13,13 @@ class Api::ViolationsController < ApplicationController
   def create
 
      
-      remove_unused_params(params[:violation])
-      base64Img = params[:violation][:image_before]
-      params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img)
+     #   remove_unused_params(params[:violation])
+      #  base64Img = params[:violation][:image_before]
+      #   params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img)
  #    params.delete :_dc
 #     params.delete :format
 # params[:violation].delete(:image_before_url)
-     @violation = Violation.new(params[:violation])
+                                                       #@violation = Violation.new(params[:violation])
 #     @violation = Violation.new(params[:violation])
 #     @violation = Violation.new(params[:violation].delete(:id))
      #    @violation = Violation.new(params.except!(:id))
@@ -29,13 +29,13 @@ class Api::ViolationsController < ApplicationController
 #    @violation.lat = params[:violation][:lat]
 #    @violation.long = params[:violation][:long]
 #    @violation.violation_type = params[:violation][:violation_type]
-    respond_to do |format|
-      if @violation.save
-        format.json { render json: 'Success' }
-      else
-        format.json { render json: 'Fail' }
-      end
-    end
+                                                       # respond_to do |format|
+                                                       # if @violation.save
+                                                       # format.json { render json: 'Success' }
+                                                       #  else
+                                                       #format.json { render json: 'Fail' }
+                                                       # end
+                                                       #end
   end
 
   def update
