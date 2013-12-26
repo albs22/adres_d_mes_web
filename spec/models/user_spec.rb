@@ -12,8 +12,9 @@ describe User do
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
+	it { should respond_to(:authenticate) }
 
-	it { should_not be_valid }
+	it { should be_valid }
 	
 	describe "when email format is invalid" do
 		it "should be invalid" do
@@ -58,12 +59,12 @@ describe User do
 
 	describe "when password is too short" do
 		before { @user.password = @user.password_confirmation = "a" * 5 }
-		it { should be_valid }
+		it { should be_invalid }
 	end
 
 	describe "return value of authenticate  method" do
 		before { @user.save }
-		let(:found_user) { User.find_by_email(email: @user.email) }
+		let(:found_user) { User.find_by_email(@user.email) }
 
 		describe "with valid password" do
 			it { should eq found_user.authenticate(@user.password) }
