@@ -8,10 +8,11 @@
 					<li><%= link_to "Home", root_path %></li>
 					<li><%= link_to "Messes", violations_path %></li>
 					<li><%= link_to "Events", '#' %></li>
-					<li><%= link_to "Submit a Mess", '#' %></li>
+					<li><%= link_to "Submit a Mess", new_path %></li>
+					<li><%= signed_in? %></li>
 					<% if signed_in? %>
 						<li><%= link_to "Manage", '#' %></li>
-						<li><%= link_to "Sign out", '#' %></li>
+						<li><%= link_to "Sign out", signout_path, method: "delete" %></li>
 					<% else %>
 						<li><%= link_to "Sign In", signin_path  %></li>
 					<% end %>

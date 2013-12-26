@@ -9,7 +9,9 @@ CodeViolations::Application.routes.draw do
     
     
 	 match '/events',		to:	'home#events'
-   match 'violations/new'   => 'violations#new'
+	 match '/new',      to: 'violations#new'
+	 match '/edit',			to: 'violations#edit'
+  # match 'violations/new'   => 'violations#new'
    match 'violations/show'  => 'violations#show'
    match 'violations/index' => 'violations#index'
 	 match '/signin',		to: 'sessions#new',			via: 'get'

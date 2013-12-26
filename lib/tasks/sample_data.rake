@@ -1,5 +1,15 @@
 #require 'csv'
 namespace :db do
+	
+	desc "Add Sample User"
+	task addUser: :environment do
+		User.create!(name: "Example User",
+								 email: "example@adresdmes.org",
+								 password: "foobar",
+								 password_confirmation: "foobar")
+	end
+						
+
 
   desc "Fill DB with sample code violations"
   task populate: :environment do
