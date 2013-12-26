@@ -1,14 +1,20 @@
 CodeViolations::Application.routes.draw do
-  get "users/new"
+  #get "users/new"
 
-    resources :violations
+   resources :violations
+	 resources :users
+	 resources :sessions, only: [:new, :create, :destroy]
 
    root to: 'violations#index'
     
     
+	 match '/events',		to:	'home#events'
    match 'violations/new'   => 'violations#new'
    match 'violations/show'  => 'violations#show'
    match 'violations/index' => 'violations#index'
+	 match '/signin',		to: 'sessions#new',			via: 'get'
+	 match '/signout',  to: 'sessions#destroy', via: 'delete'
+	 
 
   namespace 'api', :defaults => {:format => :json} do
     resources :violations
