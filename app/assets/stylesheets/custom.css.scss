@@ -15,7 +15,7 @@ body {
 }
 
 a {
-	color: #fff
+/*	color: #fff */
 }
 
 .container {
@@ -37,6 +37,10 @@ a {
 	display: inline-block;
 }
 
+.nav > li > a {
+  color: #fff !important;
+}
+
 .navbar-inner {
   background-color: $admGreen;
 }
@@ -45,6 +49,7 @@ a {
 	float: left;
 	height: 80px;;
 }
+
 
 /* forms */
 
