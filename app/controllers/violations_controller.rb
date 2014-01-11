@@ -56,7 +56,12 @@ class ViolationsController < ApplicationController
     end
   end
   
-  
+  def destroy
+    @violation = Violation.find(params[:id])
+    @violation.destroy
+
+    redirect_to violations_url
+  end
   
   
   

@@ -11,29 +11,32 @@ class Api::ViolationsController < ApplicationController
   end
 
   def create
+    #Remove Image urls from incoming JSON
+    remove_unused_params(params[:violation])
+    
+    base64img = params[:violation][:image_before]
+    puts base64img
 
-     
-      remove_unused_params(params[:violation])
- #    params.delete :_dc
-#     params.delete :format
-# params[:violation].delete(:image_before_url)
-     @violation = Violation.new(params[:violation])
-#     @violation = Violation.new(params[:violation])
-#     @violation = Violation.new(params[:violation].delete(:id))
-     #    @violation = Violation.new(params.except!(:id))
-#    @violation = Violation.new(params[:violation].delete(:id))
-   # @violation = Violation.new
-   # @violation.attributes(params[:violation].except(:id))
-#    @violation.lat = params[:violation][:lat]
-#    @violation.long = params[:violation][:long]
-#    @violation.violation_type = params[:violation][:violation_type]
+    
+# params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img))
+
+    data = StringIO.new(Base64.decode64(base64img))
+    
+    data.class.class_eval { attr_accessor :original_filename, :content_type }
+    data.original_filename = "mess.jpg"
+    data.content_type = "image/jpeg"
+     params[:violation][:image_before] = data  
+    
+    @violation = Violation.new(params[:violation])
+    
     respond_to do |format|
-      if @violation.save
-        format.json { render json: 'Success' }
-      else
-        format.json { render json: 'Fail' }
-      end
-    end
+   if @violation.save
+       format.json { render json: 'Success' }
+     else
+       format.json { render json: 'Fail' }
+     end
+   end
+
   end
 
   def update

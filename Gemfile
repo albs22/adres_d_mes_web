@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 gem 'faker'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '~>3.0.0' 
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'will_paginate'
@@ -21,6 +22,7 @@ group :test do
   gem 'pg'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+	gem 'capybara'
 end
 
 group :production do

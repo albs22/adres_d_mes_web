@@ -1,4 +1,8 @@
+$admGreen:	#348034;
+
+
 @import "bootstrap";
+
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -6,12 +10,45 @@
   box-sizing: border-box;
 }
 
+body {
+	padding-top: 90px;
+}
+
+a {
+/*	color: #fff */
+}
 
 .container {
   margin-right: auto;
   margin-left: auto;
 }
 
+/* Header */
+#header-title {
+	float: left;
+	margin-right: 10px;
+	margin-left: 5px;
+	font-weight: bold;
+	font-size: 1.7em;
+	color: #fff;
+}
+
+#navlist li {
+	display: inline-block;
+}
+
+.nav > li > a {
+  color: #fff !important;
+}
+
+.navbar-inner {
+  background-color: $admGreen;
+}
+
+#header-img {
+	float: left;
+	height: 80px;;
+}
 
 
 /* forms */
@@ -41,5 +78,13 @@ input {
 .form-buttons div {
   float: right;
   margin-left: 10px;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
