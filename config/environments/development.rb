@@ -39,8 +39,8 @@ CodeViolations::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => 'address-the-mess',
-      :access_key_id => 'AKIAJHZPBPJN5FJORJWQ',
-      :secret_access_key => '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',
+      :access_key_id => ENV['S3_id'],
+      :secret_access_key => ENV['S3_key'],
   }
 }
   
