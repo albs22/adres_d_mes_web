@@ -11,6 +11,7 @@ CodeViolations::Application.routes.draw do
 	 match '/events',		to:	'home#events'
 	 match '/new',      to: 'violations#new'
 	 match '/edit',			to: 'violations#edit'
+   match '/messes',   to: 'violations#messes'
   # match 'violations/new'   => 'violations#new'
    match 'violations/show'  => 'violations#show'
    match 'violations/index' => 'violations#index'

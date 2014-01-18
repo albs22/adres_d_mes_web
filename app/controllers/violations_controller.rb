@@ -8,6 +8,10 @@ class ViolationsController < ApplicationController
       
 #   end
   end
+
+  def messes
+    @violations = Violation.all
+  end
   
    def show
     @violation = Violation.find(params[:id])
