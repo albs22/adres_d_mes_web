@@ -1,7 +1,9 @@
 class ViolationsController < ApplicationController
+  before_filter :signed_in_user, only: [:edit, :destroy]
 
   def index
-    @violations = Violation.all
+   # @violations = Violation.all
+   @violations = Violation.where(:approved => 't')
 
 # respond_to do |format|
 #     format.html # index.html.erb
@@ -10,7 +12,7 @@ class ViolationsController < ApplicationController
   end
 
   def messes
-    @violations = Violation.all
+    @violations = Violation.where(:approved => 't')
   end
   
    def show
@@ -66,9 +68,17 @@ class ViolationsController < ApplicationController
 
     redirect_to violations_url
   end
-  
-  
-  
 
+  def manage
+
+  end
+
+
+  private
+
+    def signed_in_user
+      redirect_to root_path unless signed_in?
+    end
+        
 
 end

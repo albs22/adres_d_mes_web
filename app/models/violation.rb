@@ -1,18 +1,18 @@
 class Violation < ActiveRecord::Base      
   attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 
-  :status, :violation_address, :violation_type, :image_before, :image_after
+  :status, :violation_address, :violation_type, :image_before, :image_after,:approved
 
   attr_protected :id
   
 
   has_attached_file :image_before, styles: {
     thumb: '150x120>',
-    full: '1600x1200>'
+    full: '1200x900>'
   }, :default_url => '/images/missing_:style.png'
 
   has_attached_file :image_after, styles: {
     thumb: '150x120>',
-    full: '1600x1200>'
+    full: '1200x900>'
   }, :default_url => '/images/missing_:style.png'
 
   def image_before_url_f

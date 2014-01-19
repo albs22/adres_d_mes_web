@@ -1,4 +1,4 @@
-<div class="friend" id="<%= violation.id %>">
+<div class="friend mess-list-item" id="<%= violation.id %>">
   <div class="front">
     <%= link_to violation, class: 'pic-link' do %>
       <%= image_tag violation.image_before.url(:thumb) %>
@@ -9,8 +9,15 @@
     <span class="friend-name"><%= violation.description %></span>
     <div class="actions">
       <%= link_to 'Show', violation %>
-      <%= link_to 'Edit', edit_violation_path(violation) %>
-      <%= link_to 'Delete', violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %>
+
+      <% if signed_in? %>
+        <%= link_to 'Edit', edit_violation_path(violation) %>
+        <%= link_to 'Delete', violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %>
+ 
+      <% else %>
+
+
+      <% end %>
     </div>
   </div>
 </div>

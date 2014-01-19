@@ -90,3 +90,13 @@ input {
   @include box_sizing;
 }
 
+/* Mess list */
+.mess-list-item {
+  border-bottom: 1px solid gray;
+  width: 250px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-left: 25px;
+
+}
+

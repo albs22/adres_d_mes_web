@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131226192019) do
+ActiveRecord::Schema.define(:version => 20140119180048) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20131226192019) do
     t.string   "type"
     t.string   "status"
     t.string   "description"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.float    "lat"
     t.string   "violation_type"
     t.string   "violation_address"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20131226192019) do
     t.integer  "image_after_file_size"
     t.datetime "image_after_updated_at"
     t.float    "lng"
+    t.boolean  "approved",                  :default => false
   end
 
 end
