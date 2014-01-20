@@ -93,10 +93,25 @@ input {
 /* Mess list */
 .mess-list-item {
   border-bottom: 1px solid gray;
-  width: 250px;
+  height: 100px;
+  width: 60%;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   margin-left: 25px;
+}
 
+.mess-list-img {
+  float: left;
+  max-width: 140px;
+
+}
+
+.mess-list-img img {
+  max-height: 75px;
+}
+
+.mess-list-data {
+  float: left;
+  margin-left: 15px;
 }
 

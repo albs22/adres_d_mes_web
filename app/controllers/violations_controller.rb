@@ -65,12 +65,20 @@ class ViolationsController < ApplicationController
   def destroy
     @violation = Violation.find(params[:id])
     @violation.destroy
-
+ 
     redirect_to violations_url
   end
 
   def manage
+    @approvals = Violation.where(:approved => 'f')
+  end
 
+  def approve
+     @violation = Violation.find(params[:id])
+     @violation.approved = true
+     @violation.save    
+     redirect_to manage_path
+    
   end
 
 
