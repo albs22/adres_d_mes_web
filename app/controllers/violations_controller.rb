@@ -53,13 +53,27 @@ class ViolationsController < ApplicationController
   
   #PUT /violations/1
   def update
-    @violation = Violation.find(parama[:id])
-      
-    if @violation.update_attribute(params[:friend])
-      redirect_to @violation, notice: 'Mess was successfully updated.' 
+    @violation = Violation.find(params[:id])
+    
+    puts 'Update'    
+
+    if params[:_method] = 'approve'
+      @violation.approved = true
+      @violation.save
+      redirect_to manage_path
     else
-      render action: "edit"
-    end
+      if  @violation.update_attributes(params[:violation])
+        redirect_to @violation, notice: 'Violation successfully updated.'
+      else
+        render action: 'edit'
+      end
+    end      
+
+   # if @violation.update_attribute(params[:friend])
+    #  redirect_to @violation, notice: 'Mess was successfully updated.' 
+   # else
+    #  render action: "edit"
+   # end
   end
   
   def destroy

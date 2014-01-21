@@ -167,7 +167,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   jquery-rails
-  json (= 1.8.1)
   paperclip (~> 3.0)
   pg
   rails (= 3.2.9)

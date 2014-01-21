@@ -13,7 +13,7 @@ CodeViolations::Application.routes.draw do
 	 match '/edit',			to: 'violations#edit'
    match '/manage',         to: 'violations#manage'
    match '/messes',         to: 'violations#messes'
-   match '/approvals/:id',   to: 'violations#approve'
+   match '/violations/:id',   to: 'violations#update'
   # match 'violations/new'   => 'violations#new'
    match 'violations/show'    => 'violations#show'
    match 'violations/index'   => 'violations#index'
