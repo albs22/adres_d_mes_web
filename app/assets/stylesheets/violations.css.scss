@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$admGreen:  #348034;
 
 /* Edit form image styles */
 .img-edit-container {
@@ -27,4 +28,29 @@
 }
 
 
+/* Index page styling */
+.sub-header3 {
+  background-color: $admGreen;
+  width: 90%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.sub-header3 h3 {
+  height: 25px;
+  color: #fff;
+  font-size: 1.6em;
+}
+
+#home-apps {
+  text-align: center;
+}
+
+.get-app img {
+  margin-top: 10px;
+}
+
+#home-apps p {
+  margin-top: 15px;
+}
