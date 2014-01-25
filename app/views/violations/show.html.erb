@@ -1,5 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<div class="detail-info">
+  <table id="detail-info-table" >
+    <tr>
+      <td>Status:</td>
+      <td><%= @violation.status %></td>
+      <td>Lat:</td>
+      <td><%= @violation.lat %></td>
+    </tr>
+    <tr>
+      <td>Description: </td>
+      <td><%= @violation.description %></td>
+      <td>Lng: </td>
+      <td><%= @violation.lng %></td>
+    </tr>
+    <tr>
+      <td>Type: </td>
+      <td><%= @violation.violation_type %></td>
+      <td>Address: </td>
+      <td><%= @violation.violation_address %></td>
+    </tr>
+ </table>
+
+</div>
+
+
+
 <h2><%= @violation.description %></h2>
 <p>Address: <%= @violation.violation_address %></p>
   <%= image_tag @violation.image_before.url(:full) %>
