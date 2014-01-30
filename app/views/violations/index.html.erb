@@ -18,7 +18,7 @@
           <h3>Messes Cleaned</h3>
         </div>
         
-          <div class="mess-count">4</div>
+          <div class="mess-count"><%= @clean_count %></div>
       </div>
 
      </div>
@@ -31,7 +31,7 @@
         <div class="sub-header3">
           <h3>Submit a New Mess</h3>
         </div>
-
+<span class="glyphicon glyphicon-plus"></span>
 <%= link_to 'New Violation', new_violation_path, class: 'new-friend' %>
 
 
@@ -40,6 +40,7 @@
       <div class="sub-header3">  
         <h3>Recently Submitted Messes</h3>
       </div>   
+      <%= render @recent_violations %>
     </div>
   </div>
   <div class="bottom-right">

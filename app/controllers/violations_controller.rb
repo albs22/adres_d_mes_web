@@ -3,7 +3,9 @@ class ViolationsController < ApplicationController
 
   def index
    # @violations = Violation.all
-   @violations = Violation.where(:approved => 't')
+ #  @violations = Violation.where(:approved => 't')
+   @recent_violations = Violation.last(2).reverse
+   @clean_count = Violation.where(:status => 'closed').count
 
 # respond_to do |format|
 #     format.html # index.html.erb
