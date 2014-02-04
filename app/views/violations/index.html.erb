@@ -1,64 +1,68 @@
 
 <div class="billboard-container">
-  <div class="billboard-left">
+  <div class="billboard-main">
     <div class="image-row">
       <img class="billboard-img" src="images/Keeling1Before.jpg" />
-      <img class="billboard-img" src="images/Keeling1After.jpg" />
+      <img class="billboard-img" src="images/Keeling2Before.jpg" />
+      <img class="billboard-img" src="images/Keeling3Before.jpg" />
     </div>
     <div class="image-row">
-      <img class="billboard-img" src="images/Keeling2Before.jpg" />
+      <img class="billboard-img" src="images/Keeling1After.jpg" />
       <img class="billboard-img" src="images/Keeling2After.jpg" />
+      <img class="billboard-img" src="images/Keeling3After.jpg" />
     </div>
-  </div>
-
-  <div class="billboard-right">
-    <div class="mess-counter"> 
-      <div class="mess-counter-box">
-        <div class="sub-header3">
-          <h3>Messes Cleaned</h3>
-        </div>
-        
-          <div class="mess-count"><%= @clean_count %></div>
-      </div>
-
-     </div>
   </div>
 </div>
 
 <div class="bottom-container">
   <div class="bottom-left">
-      <div id="home-create">
-        <div class="sub-header3">
-          <h3>Submit a New Mess</h3>
+   <div id="home-create">
+    <div class="panel panel-default panel-home">
+      <div class="panel-heading main-heading ">Submit a New Mess</div>
+        <div class="panel-body">
+          <span class="glyphicon glyphicon-plus"></span>
+  <%= link_to 'New Violation', new_violation_path, class: 'new-friend' %>
         </div>
-<span class="glyphicon glyphicon-plus"></span>
-<%= link_to 'New Violation', new_violation_path, class: 'new-friend' %>
+      </div>
+     </div>
 
-
-    </div>
     <div id="home-newmess">
-      <div class="sub-header3">  
-        <h3>Recently Submitted Messes</h3>
-      </div>   
-      <%= render @recent_violations %>
+       <div class="panel panel-default panel-home">
+         <div class="panel-heading main-heading ">Recently Submitted Messes</div>
+          <div class="panel-body">
+            <%= render @recent_violations %>
+          </div>
+        </div>
     </div>
   </div>
+  
   <div class="bottom-right">
-      <div id="home-events">
-        <div class="sub-header3">
-         <h3>Upcomming Events</h3>
-        </div>  
-        <p>No new events at this time</p>
-       <div id="home-apps">
-         <div class="sub-header3">
-           <h3>Get the App</h3>
-         </div>
+      <div class="panel panel-default panel-home">
+        <div class="panel-heading main-heading ">Messes Cleaned</div>
+        <div class="panel-body">
+          <%= @clean_count %>
+        </div>
+      </div>
+  
+      <div class="panel panel-default panel-home">
+        <div class="panel-heading main-heading ">Upcomming Events</div>
+        <div class="panel-body">
+          No new events at this time
+        </div>
+      </div>
+      
+      <div class="panel panel-default panel-home">
+        <div class="panel-heading main-heading ">Get the App</div>
+        <div class="panel-body">
          <a class="get-app" href="https://play.google.com/store/apps/details?id=com.addressdmess">
            <img alt="Android app on Google Play"
                   src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
                   </a>
         <P> Apple App Store app coming soon</p>
+        </div>
       </div>
+   
+       
     </div>
 
   </div>

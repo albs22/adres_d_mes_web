@@ -1,10 +1,10 @@
-<header class="navbar navbar-fixed-top">
+<header class="navbar navbar-inverse navbar-fixed-top navbar-background">
 	<div class="navbar-inner">
 		<div class="container">
 			<img id="header-img" src="/assets/header-logo.png" alt="ADM Logo" />			
-			<%= link_to "Address D Mess", root_path, id: "header-title" %>
+			  <%= link_to "Address D Mess", root_path, id: "header-title" %>
 			<nav>
-				<ul id="navlist" class="nav pull-right">
+				<ul id="navlist" class="nav navbar-nav pull-right">
 					<li><%= link_to "Home", root_path %></li>
 					<li><%= link_to "Messes", messes_path %></li>
 					<li><%= link_to "Events", '#' %></li>
