@@ -1,34 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<div class="detail-info">
-  <table id="detail-info-table" >
-    <tr>
-      <td>Status:</td>
-      <td><%= @violation.status %></td>
-      <td>Lat:</td>
-      <td><%= @violation.lat %></td>
-    </tr>
-    <tr>
-      <td>Description: </td>
-      <td><%= @violation.description %></td>
-      <td>Lng: </td>
-      <td><%= @violation.lng %></td>
-    </tr>
-    <tr>
-      <td>Type: </td>
-      <td><%= @violation.violation_type %></td>
-      <td>Address: </td>
-      <td><%= @violation.violation_address %></td>
-    </tr>
- </table>
+<div class="detail-info container">
+ <div class="row">
+  <div class="col-xs-12">
+    <table id="detail-info-table" >
+      <tr>
+        <td class="tbl-header">Status:</td>
+        <td class="tbl-data"><%= @violation.status %></td>
+        <td class="tbl-header">Lat:</td>
+        <td class="tbl-data"><%= @violation.lat %></td>
+      </tr>
+      <tr>
+        <td class="tbl-header">Description: </td>
+        <td class="tbl-data"><%= @violation.description %></td>
+        <td class="tbl-header">Lng: </td>
+        <td class="tbl-data"><%= @violation.lng %></td>
+      </tr>
+      <tr>
+        <td class="tbl-header">Type: </td>
+        <td><%= @violation.violation_type %></td>
+        <td class="tbl-header">Address: </td>
+        <td class="tbl-data"><%= @violation.violation_address %></td>
+      </tr>
+   </table>
+  </div>
+ </div>
 
+ <div class="row detail-img-container">
+  <div class="col-sm-6">
+    <h3>Before</h3>
+     <%= image_tag @violation.image_before.url(:full), class: "detail-img" %>
+  </div>
+  <div class="col-sm-6">
+    <h3>After</h3>
+     <%= image_tag @violation.image_after.url(:full), class: "detail-img" %>
+  </div>
+ </div>
 </div>
 
 
 
+<!--
 <h2><%= @violation.description %></h2>
-<p>Address: <%= @violation.violation_address %></p>
-  <%= image_tag @violation.image_before.url(:full) %>
+<p>Address: <%= @violation.violation_address %></p> -->
 
 <div class="show actions">
   <% if signed_in? %>
