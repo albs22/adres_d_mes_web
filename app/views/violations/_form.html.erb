@@ -66,10 +66,14 @@
   
     <div class="form-buttons">
       <div>
-        <%= f.submit 'Submit a violation', class: "btn btn-large btn-primary" %>
-      </div>
+        <% if current_page?(action: 'edit') %>
+          <%= f.submit 'Update', class: "btn btn-large btn-success" %>
+        <% else %>
+            <%= f.submit 'Submit a violation', class: "btn btn-large btn-success" %>
+        <% end %>
+      </div>   
       <div>
-        <%= link_to 'Nevermind', violations_path, class: 'btn' %>
+        <%= link_to 'Nevermind', violations_path, class: 'btn btn-medium btn-warning' %>
       </div>
     </div>
   

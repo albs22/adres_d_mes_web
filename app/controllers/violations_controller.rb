@@ -52,30 +52,39 @@ class ViolationsController < ApplicationController
       end
 #   end
   end
+
+  def approve
+    @violation = Violation.find(params[:id])
+    @violation.approved = true
+    @violation.save
+    logger.info "Approve Method"
+    redirect_to root_path
+  end
   
   #PUT /violations/1
   def update
     @violation = Violation.find(params[:id])
-    
-    puts 'Update'    
-
-    if params[:_method] = 'approve'
-      @violation.approved = true
-      @violation.save
-      redirect_to manage_path
-    else
-      if  @violation.update_attributes(params[:violation])
-        redirect_to @violation, notice: 'Violation successfully updated.'
+   
+    if !params[:update_type].present? 
+      if @violation.update_attributes(params[:violation])
+       flash[:success] = "Mess updated"
+       redirect_to root_path
       else
+        flash[:error] = "Could not update Mess"
         render action: 'edit'
       end
-    end      
-
-   # if @violation.update_attribute(params[:friend])
-    #  redirect_to @violation, notice: 'Mess was successfully updated.' 
-   # else
-    #  render action: "edit"
-   # end
+   else
+     if params[:update_type] = "approve"
+       @violation.approved = true
+       if @violation.save 
+         flash[:success] = "Mess approved - " + params[:update_type]
+       else
+         flash[:error] = "Could not approve mess"
+       end
+       redirect_to manage_path
+     end    
+   end
+    
   end
   
   def destroy

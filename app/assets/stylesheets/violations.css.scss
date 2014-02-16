@@ -64,6 +64,11 @@ $admGreen: #348034;
   color: #fff;
 }
 
+
+.main-new-mess {
+  padding-bottom: 17px;
+}
+
 .mess-counter {
   border: 1px gray solid;
   margin: auto;
@@ -82,6 +87,12 @@ $admGreen: #348034;
 
 .counter-box {
   border: 3px gray solid;
+}
+
+.counter-text {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .billboard-right-img {
@@ -110,6 +121,7 @@ $admGreen: #348034;
 
 #home-newmess {
   height: 100px;
+  margin-top: 19px;
 }
 
 #home-create {
