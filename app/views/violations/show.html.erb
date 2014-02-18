@@ -6,7 +6,11 @@
     <table id="detail-info-table" >
       <tr>
         <td class="tbl-header">Status:</td>
-        <td class="tbl-data"><%= @violation.status %></td>
+        <% if @violation.status = 'open' %>
+          <td class="tbl-data status-open"><%= @violation.status %></td>
+        <% else %>
+          <td class="tbl-data status-closed"><%= @violation.status %></td>
+        <% end %>
         <td class="tbl-header">Lat:</td>
         <td class="tbl-data"><%= @violation.lat %></td>
       </tr>
@@ -44,14 +48,16 @@
 <h2><%= @violation.description %></h2>
 <p>Address: <%= @violation.violation_address %></p> -->
 
-<div class="show actions">
+<div class="detail-actions">
   <% if signed_in? %>
-      <%= link_to 'Edit', edit_violation_path(@violation) %>    
-      <%= link_to 'Remove', @violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %> 
+      <%= link_to 'Edit | ', edit_violation_path(@violation) %>    
+      <%= link_to 'Remove | ', @violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %> 
   <% else %>
     <!-- Put status update link here -->
 
   <% end %>
   
-  <%= link_to 'Back to all my vioaltions', violations_path %>
+  <%= link_to 'Back to mess list', messes_path %>
 </div>
+
+

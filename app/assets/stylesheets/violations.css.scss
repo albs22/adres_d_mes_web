@@ -151,16 +151,19 @@ $admGreen: #348034;
 .img-edit-thumb
 {
   float: left;
+  width: 160px;
 }
 
 .img-edit-field {
   float: left;
   width: 50%;
   margin-top: 25px;
+  margin-left: 10px;
 }
 
 .img-form-container{
   height: 200px;
+  margin-top: 10px;
 }
 
 .sub-header3 {
@@ -218,6 +221,16 @@ $admGreen: #348034;
   width: 20%;
 }
 
+.status-open {
+  color: green;
+  font-weight: bold;
+} 
+
+.status-closed {
+  color: red;
+  font-weight: bold;
+}
+
 .detail-left {
   float: left;
   width: 40%;
@@ -225,8 +238,8 @@ $admGreen: #348034;
 }
 
 .detail-img-container {
-  border: 1px solid black;
-  background-color: lightgray;
+  /* border: 1px solid black; */
+  background-color: #E3E3E3;
 }
 
 .detail-img-container div h3 {
@@ -237,5 +250,17 @@ $admGreen: #348034;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  padding-bottom: 10px;
 }
+
+.detail-clean-btn {
+  float: right;
+  margin-top: 10px;
+}
+
+.detail-actions {
+  float: left;
+  margin-top: 10px;
+}
+
 
