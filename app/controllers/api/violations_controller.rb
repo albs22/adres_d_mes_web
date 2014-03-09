@@ -2,9 +2,10 @@ class Api::ViolationsController < ApplicationController
 
   def index
     @violations = Violation.all
+	#	@violations.map! { |v| v. }
     respond_to do |format|
 #    format.json {render :json => {:violations => @violations.as_json}}
-  format.json { render :json => {:violations => @violations.as_json(:only =>
+    format.json { render :json => {:violations => @violations.as_json(:only =>
          [:id, :date_entered,  :lat, :lng, :description, :violation_type, :violation_address, :status], 
          :methods => [:image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
     end
@@ -20,13 +21,15 @@ class Api::ViolationsController < ApplicationController
     
 # params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img))
 
-    data = StringIO.new(Base64.decode64(base64img))
-    
-    data.class.class_eval { attr_accessor :original_filename, :content_type }
-    data.original_filename = "mess.jpg"
-    data.content_type = "image/jpeg"
-     params[:violation][:image_before] = data  
-    
+		if base64img 
+			data = StringIO.new(Base64.decode64(base64img))
+
+		 data.class.class_eval { attr_accessor :original_filename, :content_type }
+			data.original_filename = "mess.jpg"
+			data.content_type = "image/jpeg"
+			params[:violation][:image_before] = data  
+		end
+
     @violation = Violation.new(params[:violation])
     
     respond_to do |format|
