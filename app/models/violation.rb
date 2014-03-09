@@ -19,7 +19,7 @@ class Violation < ActiveRecord::Base
     image_before.url(:full)
   end
 
- # def image_before_url_t
+  def image_before_url_t
   #  if image_before.url(:thumb)[0].chr == "/"
 	#		img_path =  image_before.url(:thumb)
 	#		img_path.slice!(0)
