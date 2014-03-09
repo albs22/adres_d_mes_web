@@ -19,8 +19,17 @@ class Violation < ActiveRecord::Base
     image_before.url(:full)
   end
 
-  def image_before_url_t
-    image_before.url(:thumb)
+ # def image_before_url_t
+  #  if image_before.url(:thumb)[0].chr == "/"
+	#		img_path =  image_before.url(:thumb)
+	#		img_path.slice!(0)
+	#		return img_path
+			 
+	#	else
+	#		return image_before.url(:thumb)
+	#	end
+	
+		image_before.url(:thumb)
   end
 
   def image_after_url_f
@@ -28,8 +37,7 @@ class Violation < ActiveRecord::Base
   end
 
   def image_after_url_t
-    image_after.url(:thumb)
+		image_after.url(:thumb)
   end
-
 
 end
