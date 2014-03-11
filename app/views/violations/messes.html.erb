@@ -1,4 +1,18 @@
 
+<div id="messes-filter">
+  <div class="dropdown">
+    <button id="filterDropdown" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" >
+      Filter
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="filterDropdown">
+      <li role="presentation"><a role="menuitem" href="#"> Open</a></li>
+      <li role="presentation">Closed</li>
+    </ul>
+  </div>
+</div>
+
+
 <section id="friends">
     <%= render @violations %>
  </section>
