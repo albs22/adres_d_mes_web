@@ -15,18 +15,15 @@ class Api::ViolationsController < ApplicationController
     remove_unused_params(params[:violation])
     
     base64img = params[:violation][:image_before]
-    puts base64img
+    
+    if base64img
+      data = StringIO.new(Base64.decode64(base64img))
+      data.class.class_eval { attr_accessor :original_filename, :content_type }
+      data.original_filename = "mess.jpg"
+      data.content_type = "image/jpeg"
+      params[:violation][:image_before] = data  
+    end
 
-    
-# params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img))
-
-    data = StringIO.new(Base64.decode64(base64img))
-    
-    data.class.class_eval { attr_accessor :original_filename, :content_type }
-    data.original_filename = "mess.jpg"
-    data.content_type = "image/jpeg"
-     params[:violation][:image_before] = data  
-    
     @violation = Violation.new(params[:violation])
     
     respond_to do |format|
