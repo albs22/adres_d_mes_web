@@ -1,5 +1,5 @@
 class ViolationsController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :destroy]
+  before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
    # @violations = Violation.all

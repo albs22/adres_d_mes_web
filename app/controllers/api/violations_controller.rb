@@ -44,9 +44,9 @@ class Api::ViolationsController < ApplicationController
     params.delete :id 
     respond_to do |format|
       if @violation.update_attributes(params[:violation])
-        format.json { render json: 'Success' }
+        format.json { render json: '{success: true, msg:"Mess Update: Success"}' }
       else
-        format.json { render json: 'fail' }
+        format.json { render json: '{success: false, msg:"Mess Upate: "Failed"}' }
       end
     
     end

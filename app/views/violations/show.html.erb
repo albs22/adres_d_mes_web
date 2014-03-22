@@ -6,7 +6,7 @@
     <table id="detail-info-table" >
       <tr>
         <td class="tbl-header">Status:</td>
-        <% if @violation.status = 'open' %>
+        <% if @violation.status == 'open' %>
           <td class="tbl-data status-open"><%= @violation.status %></td>
         <% else %>
           <td class="tbl-data status-closed"><%= @violation.status %></td>
