@@ -4,8 +4,8 @@ class Api::ViolationsController < ApplicationController
     @violations = Violation.where(:approved => 't')
     respond_to do |format|
       format.json { render :json => {:violations => @violations.as_json(:only =>
-         [:id, :date_entered,  :lat, :lng, :description, :violation_type, :violation_address, :status], 
-         :methods => [:image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
+         [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
+         :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
     end
   end
 
@@ -24,6 +24,7 @@ class Api::ViolationsController < ApplicationController
     end
 
     @violation = Violation.new(params[:violation])
+    @violation.date_entered =  DateTime.now
     
     respond_to do |format|
    if @violation.save
