@@ -37,11 +37,11 @@ class Violation < ActiveRecord::Base
     image_after.url(:thumb)
   end
   
-  def date_submitted
-    if date_entered
-      date_entered.to_formatted_s(:long_ordinal)
-    end
-  end
+ # def format_date
+  #  if date_entered
+   #   date_entered = date_entered.to_formatted_s(:long_ordinal)
+   # end
+ # end
 
 
 end

@@ -1,7 +1,7 @@
 class Api::ViolationsController < ApplicationController
 
   def index
-    @violations = Violation.where(:approved => 't')
+    @violations = Violation.where(:approved => 't').where(:status => 'open')
     respond_to do |format|
       format.json { render :json => {:violations => @violations.as_json(:only =>
          [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
@@ -40,6 +40,7 @@ class Api::ViolationsController < ApplicationController
 
     params.delete :_dc
     params.delete :format
+    #params.delete :date_submitted
     remove_unused_params(params[:violation])
     @violation = Violation.find(params[:id])
     params.delete :id 
