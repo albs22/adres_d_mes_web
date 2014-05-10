@@ -15,13 +15,22 @@ class ViolationsController < ApplicationController
 
   def messes
     @violations = Violation.where(:approved => 't')
+
+
+    if params[:sort] == 'open'
+      @violations = @violations.where(:status => 'open')
+    end
+    if params[:sort] == 'closed'
+      @violations = @violations.where(:status => 'closed')
+    end
+
   end
   
    def show
     @violation = Violation.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.htmb
     end
   end
 
