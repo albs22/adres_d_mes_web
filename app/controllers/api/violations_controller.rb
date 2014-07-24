@@ -1,11 +1,21 @@
 class Api::ViolationsController < ApplicationController
 
   def index
+<<<<<<< HEAD
     @violations = Violation.where(:approved => 't').where(:status => 'open')
     respond_to do |format|
       format.json { render :json => {:violations => @violations.as_json(:only =>
          [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
          :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
+=======
+    @violations = Violation.all
+	#	@violations.map! { |v| v. }
+    respond_to do |format|
+#    format.json {render :json => {:violations => @violations.as_json}}
+    format.json { render :json => {:violations => @violations.as_json(:only =>
+         [:id, :date_entered,  :lat, :lng, :description, :violation_type, :violation_address, :status], 
+         :methods => [:image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
+>>>>>>> 3f94dd21d202c5fd8c5ccf16354eab80fc483a40
     end
   end
 
@@ -23,6 +33,18 @@ class Api::ViolationsController < ApplicationController
       params[:violation][:image_before] = data  
     end
 
+<<<<<<< HEAD
+=======
+		if base64img 
+			data = StringIO.new(Base64.decode64(base64img))
+
+		 data.class.class_eval { attr_accessor :original_filename, :content_type }
+			data.original_filename = "mess.jpg"
+			data.content_type = "image/jpeg"
+			params[:violation][:image_before] = data  
+		end
+
+>>>>>>> 3f94dd21d202c5fd8c5ccf16354eab80fc483a40
     @violation = Violation.new(params[:violation])
     @violation.date_entered =  DateTime.now
     
