@@ -1,5 +1,5 @@
 class ViolationsController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :destroy]
+  before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
    # @violations = Violation.all
@@ -15,13 +15,22 @@ class ViolationsController < ApplicationController
 
   def messes
     @violations = Violation.where(:approved => 't')
+
+
+    if params[:sort] == 'open'
+      @violations = @violations.where(:status => 'open')
+    end
+    if params[:sort] == 'closed'
+      @violations = @violations.where(:status => 'closed')
+    end
+
   end
   
    def show
     @violation = Violation.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html # show.htmb
     end
   end
 
@@ -41,7 +50,7 @@ class ViolationsController < ApplicationController
   # POST /vioaltions
   def create
     @violation = Violation.new(params[:violation])
-   
+#    @violation.date_entered = DateTime.now 
 #   respond_to do |format|
       if @violation.save
         flash[:success] = "Violation Submitted!"

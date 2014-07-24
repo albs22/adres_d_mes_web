@@ -1,12 +1,11 @@
 class Api::ViolationsController < ApplicationController
 
   def index
-    @violations = Violation.all
+    @violations = Violation.where(:approved => 't').where(:status => 'open')
     respond_to do |format|
-#    format.json {render :json => {:violations => @violations.as_json}}
-  format.json { render :json => {:violations => @violations.as_json(:only =>
-         [:id, :date_entered,  :lat, :lng, :description, :violation_type, :violation_address, :status], 
-         :methods => [:image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
+      format.json { render :json => {:violations => @violations.as_json(:only =>
+         [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
+         :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
     end
   end
 
@@ -15,19 +14,17 @@ class Api::ViolationsController < ApplicationController
     remove_unused_params(params[:violation])
     
     base64img = params[:violation][:image_before]
-    puts base64img
+    
+    if base64img
+      data = StringIO.new(Base64.decode64(base64img))
+      data.class.class_eval { attr_accessor :original_filename, :content_type }
+      data.original_filename = "mess.jpg"
+      data.content_type = "image/jpeg"
+      params[:violation][:image_before] = data  
+    end
 
-    
-# params[:violation][:image_before] = StringIO.new(Base64.decode64(base64img))
-
-    data = StringIO.new(Base64.decode64(base64img))
-    
-    data.class.class_eval { attr_accessor :original_filename, :content_type }
-    data.original_filename = "mess.jpg"
-    data.content_type = "image/jpeg"
-     params[:violation][:image_before] = data  
-    
     @violation = Violation.new(params[:violation])
+    @violation.date_entered =  DateTime.now
     
     respond_to do |format|
    if @violation.save
@@ -43,14 +40,15 @@ class Api::ViolationsController < ApplicationController
 
     params.delete :_dc
     params.delete :format
+    #params.delete :date_submitted
     remove_unused_params(params[:violation])
     @violation = Violation.find(params[:id])
     params.delete :id 
     respond_to do |format|
       if @violation.update_attributes(params[:violation])
-        format.json { render json: 'Success' }
+        format.json { render json: '{success: true, msg:"Mess Update: Success"}' }
       else
-        format.json { render json: 'fail' }
+        format.json { render json: '{success: false, msg:"Mess Upate: "Failed"}' }
       end
     
     end
