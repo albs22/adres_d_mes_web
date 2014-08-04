@@ -1,4 +1,4 @@
-lass Api::ViolationsController < ApplicationController
+Class Api::ViolationsController < ApplicationController
 
   def index
     @violations = Violation.where(:approved => 't').where(:status => 'open')
