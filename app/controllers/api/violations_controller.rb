@@ -1,4 +1,4 @@
-Class Api::ViolationsController < ApplicationController
+class Api::ViolationsController < ApplicationController
 
   def index
     @violations = Violation.where(:approved => 't').where(:status => 'open')
@@ -27,17 +27,15 @@ Class Api::ViolationsController < ApplicationController
     @violation.date_entered =  DateTime.now
     
     respond_to do |format|
-   if @violation.save
+      if @violation.save
        format.json { render json: 'Success' }
-     else
+      else
        format.json { render json: 'Fail' }
-     end
-   end
-
+      end
+    end
   end
 
   def update
-
     params.delete :_dc
     params.delete :format
     #params.delete :date_submitted
@@ -50,10 +48,9 @@ Class Api::ViolationsController < ApplicationController
       else
         format.json { render json: '{success: false, msg:"Mess Upate: "Failed"}' }
       end
-    
     end
-
   end
+  
 
 
   private
@@ -66,3 +63,5 @@ Class Api::ViolationsController < ApplicationController
   end
 
 end
+
+
