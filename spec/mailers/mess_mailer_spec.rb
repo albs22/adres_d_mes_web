@@ -1,9 +1,15 @@
 require "spec_helper"
 
 describe MessMailer do 
+
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    @user.save
+    @user.toggle!(:admin)
+  end
+
   describe :approval do
-    let(:user) { Factory :admin_user }
-    let(:mess) { Factory :mess }
+    let(:mess) { FactoryGirl.create(:violation) }
     let(:mail) { MessMailer.approval_email(mess) }
 
     it "renders subject" do
@@ -13,9 +19,7 @@ describe MessMailer do
     it "renders sender email" do
       mail.from.should eq(["approvals@addressdmess.com"])
     end
-
   end
-
 end
 
 

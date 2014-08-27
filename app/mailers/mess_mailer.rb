@@ -3,11 +3,11 @@ class MessMailer < ActionMailer::Base
 
   def approval_email(mess)
     @mess = mess
-
-    users = User.where(:admin => 'true')
+     users = User.where(:admin => true)
+     
     #Send approval email to all admin users
     users.each do |u|
-      mail(to: u.email, subject: "New Mess Appproval")
+      mail(to: u.email, subject: "New Mess Approval")
     end
 
   end

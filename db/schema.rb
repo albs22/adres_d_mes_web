@@ -27,16 +27,15 @@ ActiveRecord::Schema.define(:version => 20140822235322) do
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "violations", :force => true do |t|
-    t.float    "lat"
-    t.float    "lng"
     t.datetime "date_entered"
-    t.datetime "date_closed"
-    t.string   "description"
+    t.string   "type"
     t.string   "status"
-    t.string   "violation_address"
-    t.string   "violation_type"
+    t.string   "description"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
+    t.float    "lat"
+    t.string   "violation_type"
+    t.string   "violation_address"
     t.string   "photo_name"
     t.string   "image_before_file_name"
     t.string   "image_before_content_type"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20140822235322) do
     t.string   "image_after_content_type"
     t.integer  "image_after_file_size"
     t.datetime "image_after_updated_at"
+    t.float    "lng"
     t.boolean  "approved",                  :default => false
   end
 
