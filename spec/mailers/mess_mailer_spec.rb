@@ -19,6 +19,10 @@ describe MessMailer do
     it "renders sender email" do
       mail.from.should eq(["approvals@addressdmess.com"])
     end
+
+    it "renders receiver email" do 
+      mail.to.should eq([@user.email])
+    end
   end
 end
 

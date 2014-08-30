@@ -51,7 +51,7 @@
 <div class="detail-actions">
   <% if signed_in? %>
       <%= link_to 'Edit | ', edit_violation_path(@violation) %>    
-      <%= link_to 'Remove | ', @violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %> 
+      <%= link_to 'Remove | ', @violation, confirm: 'Are you sure you want to remove this mess?', method: :delete, class: 'destroy' %> 
   <% else %>
     <!-- Put status update link here -->
 

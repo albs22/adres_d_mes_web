@@ -7,6 +7,7 @@ class MessMailer < ActionMailer::Base
      
     #Send approval email to all admin users
     users.each do |u|
+      puts "Sent email to: " + u.email
       mail(to: u.email, subject: "New Mess Approval")
     end
 

@@ -7,6 +7,7 @@ gem 'bcrypt-ruby', '~>3.0.0'
 gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'will_paginate'
+gem 'mail'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

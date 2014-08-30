@@ -52,9 +52,13 @@ class ViolationsController < ApplicationController
     @violation = Violation.new(params[:violation])
 #    @violation.date_entered = DateTime.now 
 #   respond_to do |format|
+      puts "New Mess Created"
       if @violation.save
         flash[:success] = "Violation Submitted!"
   # redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
+        puts "Send Approval Email"
+        MessMailer.approval_email(@violation).deliver
+              puts "New Mess Created"
         redirect_to root_path
       else
          redirect_to :action => "new"
