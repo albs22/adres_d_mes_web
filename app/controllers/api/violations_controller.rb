@@ -1,4 +1,4 @@
-lass Api::ViolationsController < ApplicationController
+class Api::ViolationsController < ApplicationController
 
   def index
     @violations = Violation.where(:approved => 't').where(:status => 'open')
@@ -37,7 +37,6 @@ lass Api::ViolationsController < ApplicationController
   end
 
   def update
-
     params.delete :_dc
     params.delete :format
     #params.delete :date_submitted
@@ -50,9 +49,7 @@ lass Api::ViolationsController < ApplicationController
       else
         format.json { render json: '{success: false, msg:"Mess Upate: "Failed"}' }
       end
-    
     end
-
   end
 
 
