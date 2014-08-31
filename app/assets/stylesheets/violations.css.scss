@@ -194,6 +194,13 @@ $admGreen: #348034;
 
 
 /* Detail Page */
+
+#detail-map-canvas {
+  width: 100%;
+  height: 175px;
+  margin-bottom: 10px;
+}
+
 .detail-info {
   border: 1px Gray solid;
 }
