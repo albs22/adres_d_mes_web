@@ -27,13 +27,12 @@ class Api::ViolationsController < ApplicationController
     @violation.date_entered =  DateTime.now
     
     respond_to do |format|
-   if @violation.save
+      if @violation.save
        format.json { render json: 'Success' }
-     else
+      else
        format.json { render json: 'Fail' }
-     end
-   end
-
+      end
+    end
   end
 
   def update
@@ -51,6 +50,7 @@ class Api::ViolationsController < ApplicationController
       end
     end
   end
+  
 
 
   private
@@ -63,3 +63,5 @@ class Api::ViolationsController < ApplicationController
   end
 
 end
+
+
