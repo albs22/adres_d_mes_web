@@ -14,8 +14,10 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:remember_token) }
+  it { should respond_to(:admin) }
 
 	it { should be_valid }
+  it { should_not be_admin }
 	
 	describe "when email format is invalid" do
 		it "should be invalid" do
@@ -72,10 +74,18 @@ describe User do
 		end
 
 		describe "with invalid password" do
-		 let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-		 it { should_not eq user_for_invalid_password }
-		 specify { expect(user_for_invalid_password).to be_false }
+		it { should_not found_user.authenticate("wrongpass") }
 		end
 	end
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+    
+    it { should be_admin }
+  end
+  
 end
 		

@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<div id="detail-map-canvas">
+      <%= javascript_tag "initializeMessMap('#{@violation.lat}', '#{@violation.lng}', 'detail-map-canvas');" %> 
+        <%= javascript_tag "addMarker('#{@violation.status}','#{@violation.description}', #{@violation.lat}, #{@violation.lng});" %>
+</div>
+
 <div class="detail-info container">
  <div class="row">
   <div class="col-xs-12">
@@ -51,7 +56,7 @@
 <div class="detail-actions">
   <% if signed_in? %>
       <%= link_to 'Edit | ', edit_violation_path(@violation) %>    
-      <%= link_to 'Remove | ', @violation, confirm: 'Are you sure you want to lose a friend?', method: :delete, class: 'destroy' %> 
+      <%= link_to 'Remove | ', @violation, confirm: 'Are you sure you want to remove this mess?', method: :delete, class: 'destroy' %> 
   <% else %>
     <!-- Put status update link here -->
 

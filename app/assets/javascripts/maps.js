@@ -16,7 +16,17 @@ $ ->
     InitializeMap(32.22, -110.972);
   });
   */
-  var map, marker;
+var map, marker;
+
+
+          
+function initializeMessMap(lat, lng, targetId) {
+   var latlng = new google.maps.LatLng(lat, lng);
+    var myOptions = { zoom: 13, center: latlng, mapTypeId:              google.maps.MapTypeId.ROADMAP };
+  map = new google.maps.Map(document.getElementById(targetId), myOptions);
+
+}
+
   
 function initializeFormMap(lat, lng, targetId) {
 
@@ -53,14 +63,11 @@ function RoundLatLng(latLng) {
 
 
 
-
-
-
-function addMarker(name, description, lattitude, longitude, image_path)
+function addMarker(name, description, lattitude, longitude)
 {
-    console.log(image_path);
+    
     console.log("Add Marker");
-     var image ="/assets/" + image_path
+   
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
     var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
 

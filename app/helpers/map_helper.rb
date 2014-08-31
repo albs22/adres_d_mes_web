@@ -1,7 +1,7 @@
 module MapHelper
 
   def google_maps_api_key
-    "AIzaSyCQLYmEK87btALpPAJRy3EU51f40DFkN4Y"
+    ENV['MAPS_API_KEY']
   end
 
   def google_api_url

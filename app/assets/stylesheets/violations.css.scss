@@ -194,6 +194,13 @@ $admGreen: #348034;
 
 
 /* Detail Page */
+
+#detail-map-canvas {
+  width: 100%;
+  height: 175px;
+  margin-bottom: 10px;
+}
+
 .detail-info {
   border: 1px Gray solid;
 }
@@ -268,7 +275,15 @@ $admGreen: #348034;
 
 #messes-filter {
   float: right;
+}
+
+#messes_map_canvas {
+  width: 100%;
+  height: 250px;
+  margin-bottom: 20px;
 
 }
+
+
 
 

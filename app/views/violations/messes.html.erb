@@ -1,7 +1,16 @@
 
+
+
+<div id="messes_map_canvas">
+      <%= javascript_tag "initializeMessMap(32.24260, -110.95956, 'messes_map_canvas');" %> 
+      <% @violations.each do |v| %>
+        <%= javascript_tag "addMarker('#{v.status}','#{v.description}', #{v.lat}, #{v.lng});" %>
+      <% end %>
+</div>
+
+
 <div id="messes-filter">
   <div class="dropdown">
-  
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
         Filter <span class="caret"></span>
@@ -15,7 +24,13 @@
   </div>
 </div>
 
+
 <section id="friends">
     <%= render @violations %>
- </section>
+</section>
+
+
+
+
+
 
