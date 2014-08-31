@@ -1,5 +1,5 @@
 class MessMailer < ActionMailer::Base
-  default from: "approvals@addressdmess.com"
+  default from: "approvals@mail.addressdmess.com"
 
   def approval_email(mess)
     @mess = mess

@@ -1,0 +1,18 @@
+New Mess Alert
+=================
+A new mess has been submitted and needs approval
+
+Date Submitted: <%= @mess.date_entered %>
+
+Mess ID: <%= @mess.id %>
+Type: <%= @mess.violation_type %>
+Description: <%= @mess.description %>
+Address: <%= @mess.violation_address %>
+
+
+Direct Link (can approve here if signed in): http://addressdmess.com/messs/<%= @mess.id %>/edit
+
+Manage Messes: http://addressdmess.com/manage
+
+
+
