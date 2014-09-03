@@ -1,6 +1,8 @@
 CodeViolations::Application.routes.draw do
   #get "users/new"
 
+  resources :violations, :path =>"messes"
+
    resources :violations
 	 resources :users
 	 resources :sessions, only: [:new, :create, :destroy]
@@ -21,9 +23,6 @@ CodeViolations::Application.routes.draw do
 	 match '/signout',  to: 'sessions#destroy', via: 'delete'
 	 
 
-  namespace 'api', :defaults => {:format => :json} do
-    resources :violations
-  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
