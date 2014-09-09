@@ -4,7 +4,7 @@ class ViolationsController < ApplicationController
   def index
    # @violations = Violation.all
  #  @violations = Violation.where(:approved => 't')
-   @recent_violations = Violation.last(2).reverse
+   @recent_violations = Violation.where(:approved => 't').last(2).reverse
    @clean_count = Violation.where(:status => 'closed').count
 
 # respond_to do |format|
@@ -15,22 +15,24 @@ class ViolationsController < ApplicationController
 
   def messes
     @violations = Violation.where(:approved => 't')
-
-
     if params[:sort] == 'open'
       @violations = @violations.where(:status => 'open')
     end
     if params[:sort] == 'closed'
       @violations = @violations.where(:status => 'closed')
     end
-
   end
   
    def show
+    #only show not approved messes to admins
     @violation = Violation.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.htmb
+    if @violation.approved? || signed_in_admin?
+       respond_to do |format|
+         format.html # show.htmb
+       end
+    else
+      redirect_to root_path
     end
   end
 
