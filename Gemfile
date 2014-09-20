@@ -8,6 +8,7 @@ gem 'paperclip', '~> 3.0'
 gem 'aws-sdk'
 gem 'will_paginate'
 gem 'mail'
+gem 'google-analytics-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
