@@ -2,7 +2,7 @@ $admGreen:	#348034;
 
 
 @import "bootstrap";
-
+@import "bootstrap/theme";
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -101,26 +101,32 @@ input {
 
 /* Mess list */
 .mess-list-item {
-  border-bottom: 1px solid gray;
-  height: 100px;
+ 
+  /*height: 100px; */
   width: 80%;
   margin-top: 5px;
   margin-bottom: 15px;
   margin-left: 25px;
+  border-bottom: 1px solid gray;
+  float: left;
 }
 
 .mess-list-img {
   float: left;
-  max-width: 140px;
-
+  padding-right: 5px;
 }
 
 .mess-list-img img {
-  max-height: 75px;
+  max-height: 120px;
+  max-width: 150px;
 }
 
 .mess-list-data {
-  float: left;
+ 
   margin-left: 15px;
+  margin-bottom: 10px;
+ 
+
 }
+
 
