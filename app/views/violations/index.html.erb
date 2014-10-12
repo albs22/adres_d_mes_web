@@ -1,72 +1,38 @@
 
-<div class="billboard-container">
-  <div class="billboard-main">
-    <div class="image-row">
-      <img class="billboard-img" src="images/Keeling1Before.jpg" />
-      <img class="billboard-img" src="images/Keeling2Before.jpg" />
-      <img class="billboard-img" src="images/Keeling3Before.jpg" />
-    </div>
-    <div class="image-row">
-      <img class="billboard-img" src="images/Keeling1After.jpg" />
-      <img class="billboard-img" src="images/Keeling2After.jpg" />
-      <img class="billboard-img" src="images/Keeling3After.jpg" />
+
+
+<div id="messes_map_canvas">
+      <%= javascript_tag "initializeMessMap(32.24260, -110.95956, 'messes_map_canvas');" %> 
+      <% @violations.each do |v| %>
+        <%= javascript_tag "addMarker('#{v.status}','#{v.description}', #{v.lat}, #{v.lng});" %>
+      <% end %>
+</div>
+
+
+<div id="messes-filter">
+  <div class="dropdown">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        Filter <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><%= link_to "Open", messes_path(:sort => "open") %></li>
+        <li><%= link_to "Closed", messes_path(:sort => "closed") %></li>
+        <li><%= link_to "All", messes_path %></li>
+      </ul>
     </div>
   </div>
 </div>
 
-<div class="bottom-container">
-  <div class="bottom-left">
-   <div id="home-create">
-    <div class="panel panel-default panel-home">
-      <div class="panel-heading main-heading ">Submit a New Mess</div>
-        <div class="panel-body main-new-mess">
-          <span class="glyphicon glyphicon-plus"></span>
-  <%= link_to 'New Violation', new_violation_path, class: 'new-friend' %>
-        </div>
-      </div>
-     </div>
 
-    <div id="home-newmess">
-       <div class="panel panel-default panel-home">
-         <div class="panel-heading main-heading ">Recently Submitted Messes</div>
-          <div class="panel-body">
-            <%= render @recent_violations %>
-          </div>
-        </div>
-    </div>
-  </div>
-  
-  <div class="bottom-right">
-      <div class="panel panel-default panel-home">
-        <div class="panel-heading main-heading ">Messes Cleaned</div>
-        <div class="panel-body counter-text">
-          <%= @clean_count %>
-        </div>
-      </div>
-  
-      <div class="panel panel-default panel-home">
-        <div class="panel-heading main-heading ">Upcomming Events</div>
-        <div class="panel-body">
-          No new events at this time
-        </div>
-      </div>
-      
-      <div class="panel panel-default panel-home">
-        <div class="panel-heading main-heading ">Get the App</div>
-        <div class="panel-body">
-         <a class="get-app" href="https://play.google.com/store/apps/details?id=com.addressdmess">
-           <img alt="Android app on Google Play"
-                  src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
-                  </a>
-                  <br />
-                  <br />
-          <img class="appstore-badge" alt="App Store Coming Soon" src="images/AppStoreBadge.png" />
-        </div>
-      </div>
-   
-       
-    </div>
+<section id="friends">
+    <%= render @violations %>
+    <%= will_paginate %>
+</section>
 
-  </div>
-</div>
+
+
+
+
+
 

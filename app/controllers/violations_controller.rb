@@ -2,19 +2,8 @@ class ViolationsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
-   # @violations = Violation.all
- #  @violations = Violation.where(:approved => 't')
-   @recent_violations = Violation.where(:approved => 't').last(2).reverse
-   @clean_count = Violation.where(:status => 'closed').count
-
-# respond_to do |format|
-#     format.html # index.html.erb
-      
-#   end
-  end
-
-  def messes
-    @violations = Violation.where(:approved => 't')
+    @violations = Violation.paginate(page: params[:page], :per_page => 20)
+    @violations = @violations.where(:approved => 't')
     if params[:sort] == 'open'
       @violations = @violations.where(:status => 'open')
     end
@@ -23,7 +12,7 @@ class ViolationsController < ApplicationController
     end
   end
   
-   def show
+  def show
     #only show not approved messes to admins
     @violation = Violation.find(params[:id])
 
@@ -110,7 +99,11 @@ class ViolationsController < ApplicationController
   end
 
   def manage
-    @approvals = Violation.where(:approved => 'f')
+
+    @violations = Violation.paginate(page: params[:page], :per_page => 10)
+
+    @violations = @violations.where(:approved => 'f')
+       
   end
 
   def approve

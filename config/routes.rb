@@ -1,25 +1,18 @@
 CodeViolations::Application.routes.draw do
   #get "users/new"
 
-   resources :violations
-	 resources :users
+   resources :violations, :path => 'messes'
+   resources :users
 	 resources :sessions, only: [:new, :create, :destroy]
 
-   root to: 'violations#index'
+   root to: 'home#index'
     
-    
-	 match '/events',		to:	'home#events'
-	 match '/new',      to: 'violations#new'
-	 match '/edit',			to: 'violations#edit'
-   match '/manage',         to: 'violations#manage'
-   match '/violations',  to: 'violations#messes'
-   match '/messes',         to: 'violations#messes'
-   match '/violations/:id',   to: 'violations#update'
-  # match 'violations/new'   => 'violations#new'
-   match 'violations/show'    => 'violations#show'
-   match 'violations/index'   => 'violations#index'
-	 match '/signin',		to: 'sessions#new',			via: 'get'
-	 match '/signout',  to: 'sessions#destroy', via: 'delete'
+	 match '/events',		        to:	'home#events'
+	 match '/new',              to: 'violations#new'
+	 match '/edit',			        to: 'violations#edit'
+   match '/manage',           to: 'violations#manage'
+	 match '/signin',		        to: 'sessions#new',			via: 'get'
+	 match '/signout',          to: 'sessions#destroy', via: 'delete'
 	 
 
   
