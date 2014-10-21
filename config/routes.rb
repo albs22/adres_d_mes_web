@@ -7,6 +7,7 @@ CodeViolations::Application.routes.draw do
 
    root to: 'home#index'
     
+   match '/messes',           to: 'violations#messes'
 	 match '/events',		        to:	'home#events'
 	 match '/new',              to: 'violations#new'
 	 match '/edit',			        to: 'violations#edit'
