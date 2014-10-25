@@ -41,6 +41,7 @@ class ViolationsController < ApplicationController
   # POST /vioaltions
   def create
     @violation = Violation.new(params[:violation])
+    @violation = Time.now
 #    @violation.date_entered = DateTime.now 
 #   respond_to do |format|
       puts "New Mess Created"
@@ -71,8 +72,12 @@ class ViolationsController < ApplicationController
    
     if !params[:update_type].present? 
       if @violation.update_attributes(params[:violation])
-       flash[:success] = "Mess updated"
-       redirect_to root_path
+        if @violation.status == 'closed'
+          @violation.date_closed = Time.now
+          @violation.save
+        end
+        flash[:success] = "Mess updated"
+        redirect_to root_path
       else
         flash[:error] = "Could not update Mess"
         render action: 'edit'
