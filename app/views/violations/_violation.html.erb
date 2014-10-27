@@ -6,7 +6,7 @@
   </div>
 
   <div class="mess-list-data">
-    <div>
+    <div class="mess-list-details">
       <p>Address: <%= violation.violation_address %></p>
       <p>Description: <%= violation.description %></p>
       <span>
@@ -21,9 +21,9 @@
        </span>
     </div>
     <!-- Cleaned Mess Section -->
-    <%if !violation.approved? %>
-      <div>
-        
+    <%if violation.status=="closed" %>
+      <div class="mess-list-cleaned-img">
+        <img src="images/Cleaned96.jpg" alt="Cleaned Icon" />
     
       </div>
     <% end %>
