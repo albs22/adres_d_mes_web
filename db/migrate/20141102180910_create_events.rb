@@ -4,7 +4,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.datetime :date
-      t.references :location
+      t.string :location
+      t.float :lat
+      t.float :lng
+      t.integer :user_id
 
       t.timestamps
     end

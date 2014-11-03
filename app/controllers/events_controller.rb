@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_filter :signed_in_user, only: [:new, :edit, :destroy, :manage]
   # GET /events
   # GET /events.json
   def index
@@ -8,6 +9,14 @@ class EventsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @events }
     end
+  end
+
+  def manage
+    
+  end
+
+  def calandar
+
   end
 
   # GET /events/1
@@ -80,4 +89,11 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+    def signed_in_user
+      redirect_to root_path unless signed_in?
+    end
+
 end

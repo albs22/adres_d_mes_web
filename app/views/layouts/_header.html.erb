@@ -21,7 +21,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= @current_user.name %> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><%= link_to "Manage Messes", manage_path %></li>
-                <li><a href="#">Admin Console</a></li>
+                <li><%= link_to "Mange Events", manage_events_path %></li>
                 <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
               </ul>
             </li>
