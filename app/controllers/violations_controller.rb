@@ -41,8 +41,7 @@ class ViolationsController < ApplicationController
   # POST /vioaltions
   def create
     @violation = Violation.new(params[:violation])
-    @violation = Time.now
-#    @violation.date_entered = DateTime.now 
+    @violation.date_entered = DateTime.now 
 #   respond_to do |format|
       puts "New Mess Created"
       if @violation.save

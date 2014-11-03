@@ -1,4 +1,7 @@
 CodeViolations::Application.routes.draw do
+  resources :events
+
+
   #get "users/new"
 
    resources :violations, :path => 'messes'
