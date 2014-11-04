@@ -20,8 +20,8 @@
     <%= f.text_field :description %>
   </div>
   <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
+    <%= f.label :date, 'Event Date' %>
+    <%= f.text_field :date, 'data-behavior' => 'datepicker' %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
