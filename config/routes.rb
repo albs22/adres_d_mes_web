@@ -1,4 +1,7 @@
 CodeViolations::Application.routes.draw do
+  resources :events
+
+
   #get "users/new"
 
    resources :violations, :path => 'messes'
@@ -12,6 +15,8 @@ CodeViolations::Application.routes.draw do
 	 match '/new',              to: 'violations#new'
 	 match '/edit',			        to: 'violations#edit'
    match '/manage',           to: 'violations#manage'
+   match '/manage_events',    to: 'events#manage'
+   match '/calander',         to: 'events#calander'
 	 match '/signin',		        to: 'sessions#new',			via: 'get'
 	 match '/signout',          to: 'sessions#destroy', via: 'delete'
 	 

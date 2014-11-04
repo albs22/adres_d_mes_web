@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140822235322) do
+ActiveRecord::Schema.define(:version => 20141102184904) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "date"
+    t.integer  "location_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "address"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -27,15 +45,16 @@ ActiveRecord::Schema.define(:version => 20140822235322) do
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
   create_table "violations", :force => true do |t|
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "date_entered"
-    t.string   "type"
-    t.string   "status"
+    t.datetime "date_closed"
     t.string   "description"
+    t.string   "status"
+    t.string   "violation_address"
+    t.string   "violation_type"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
-    t.float    "lat"
-    t.string   "violation_type"
-    t.string   "violation_address"
     t.string   "photo_name"
     t.string   "image_before_file_name"
     t.string   "image_before_content_type"
@@ -45,8 +64,8 @@ ActiveRecord::Schema.define(:version => 20140822235322) do
     t.string   "image_after_content_type"
     t.integer  "image_after_file_size"
     t.datetime "image_after_updated_at"
-    t.float    "lng"
     t.boolean  "approved",                  :default => false
+    t.integer  "event_id"
   end
 
 end
