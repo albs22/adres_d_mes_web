@@ -21,11 +21,19 @@
   </div>
   <div class="field">
     <%= f.label :date, 'Event Date' %>
-    <%= f.text_field :date, 'data-behavior' => 'datepicker' %>
+    <%= f.text_field :date, 'data-behavior' => 'datepicker', :placeholder => "09/13/2014 10:00am" %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :lat, 'Latitude' %>
+    <%= f.text_field :lat %>
+  </div>
+  <div class="field">
+    <%= f.label :lng, 'Longitude' %>
+    <%= f.text_field :lng %>
   </div>
   <div class="actions">
     <%= f.submit %>
