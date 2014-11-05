@@ -35,7 +35,12 @@
     <%= f.label :lng, 'Longitude' %>
     <%= f.text_field :lng %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-buttons">
+    <div>
+      <%= f.submit 'Create Event', class: "btn btn-large btn-success" %>
+    </div>
+    <div>
+      <%= link_to 'Nevermind', events_path, class: 'btn btn-medium btn-warning' %>
+    </div>
   </div>
 <% end %>
