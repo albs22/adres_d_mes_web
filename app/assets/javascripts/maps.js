@@ -1,48 +1,45 @@
-/*
-gm_init = ->
-  gm_center = new google.maps.LatLng(32.222, -110.972)
-  gm_map_type = google.maps.MapTypeId.ROADMAP
-  map_options = {center: gm_center, zoom: 14, mapTypeId: gm_map_type}
-  new google.maps.Map(@map_canvas,map_options);
-
-
-$ ->
-  map = gm_init()
-  
-  */
-  
-  /*
-  $(document).ready(function () {
-    InitializeMap(32.22, -110.972);
-  });
-  */
 var map, marker;
 
-
-          
-function initializeMessMap(lat, lng, targetId) {
-   var latlng = new google.maps.LatLng(lat, lng);
-    var myOptions = { zoom: 13, center: latlng, mapTypeId:              google.maps.MapTypeId.ROADMAP };
+function initMap(targetId, type) {
+  var latlng = new google.maps.LatLng(32.2460, -110.9595);
+  var myOptions =  { zoom: 13, center: latlng, mapTypeId:google.maps.MapTypeId.ROADMAP };
   map = new google.maps.Map(document.getElementById(targetId), myOptions);
 
-}
+  switch(type) {
+    case "event_create":
+      console.log("switch");
+      eventCreateMap();
+      break;
+    case "mess_list":
+      messListMap();
+      break;
+    case "mess_create":
+      messCreateMap();
+      break;
+  }
 
-  
-function initializeFormMap(lat, lng, targetId) {
+  function eventCreateMap() {
+    addFormMarkerOnClick('event');
+  }
 
-    var latlng = new google.maps.LatLng(lat, lng);
-    var myOptions = { zoom: 13, center: latlng, mapTypeId:          google.maps.MapTypeId.ROADMAP };
-    map = new google.maps.Map(document.getElementById(targetId), myOptions);
-    
+  function messListMap() {
+
+  }
+
+  function messCreateMap() {
+    addFormMarkerOnClick('violation');
+  }
+
+  function addFormMarkerOnClick(fieldName) {
+     console.log("add mark onclick");
      google.maps.event.addListener(map, 'click', function (event) {
         addGenericMarker(event.latLng);
-        
         //populate for lat, lng form fields
-        document.getElementById('violation_lat').value =  RoundLatLng(event.latLng.lat());
-        document.getElementById('violation_lng').value = RoundLatLng(event.latLng.lng());
+        document.getElementById(fieldName + '_lat').value =  RoundLatLng(event.latLng.lat());
+        document.getElementById(fieldName + '_lng').value = RoundLatLng(event.latLng.lng());
      });
+  }
 }
-
 
 function addGenericMarker(location) {
   if (marker) {
@@ -61,13 +58,8 @@ function RoundLatLng(latLng) {
     return latLng.toFixed(decimalPlaces);
 }
 
-
-
 function addMarker(name, description, lattitude, longitude)
 {
-    
-    console.log("Add Marker");
-   
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
     var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
 

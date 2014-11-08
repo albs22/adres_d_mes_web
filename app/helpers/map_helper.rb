@@ -8,6 +8,14 @@ module MapHelper
     "http://maps.googleapis.com/maps/api/js"
   end
 
+  def default_lat
+    32.2460
+  end
+
+  def default_lng
+    -110.9596
+  end
+
   def google_api_access
      "#{google_api_url}?key=#{google_maps_api_key}&libraries=geometry&sensor=false"
   end
