@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def manage
-    
+    @events = Event.all    
   end
 
   def calandar
