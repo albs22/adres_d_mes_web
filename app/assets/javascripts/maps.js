@@ -7,7 +7,6 @@ function initMap(targetId, type) {
 
   switch(type) {
     case "event_create":
-      console.log("switch");
       eventCreateMap();
       break;
     case "mess_list":

@@ -2,7 +2,7 @@
 
 
 <div id="messes_map_canvas">
-      <%= javascript_tag "initializeMessMap(32.24260, -110.95956, 'messes_map_canvas');" %> 
+      <%= javascript_tag "initMap('messes_map_canvas', 'mess_list');" %> 
       <% @violations.each do |v| %>
         <%= javascript_tag "addMarker('#{v.status}','#{v.description}', #{v.lat}, #{v.lng});" %>
       <% end %>
