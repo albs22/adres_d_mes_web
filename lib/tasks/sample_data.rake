@@ -8,6 +8,24 @@ namespace :db do
 								 password: "foobar",
 								 password_confirmation: "foobar")
 	end
+  
+  desc "Add events"
+  task addEvents: :environment do
+    event = Event.create!(lat: 32.228,
+                  lng: -110.947,
+                  title: "The first event",
+                  description: "Welcome to the first event",
+                  #date: DateTime.new('2014, 11, 10'),
+                  location: "Some street"
+                  )
+   event.violations.create!(
+                      lat: 32.2460,
+                      lng: -110.9595,
+                      violation_address: '123 Seed St',
+                      description: 'Event link test mess')
+
+
+  end
 						
 
 
@@ -35,6 +53,7 @@ namespace :db do
                       
    # 1.times do |n|
    end
+   
    
   # desc "Parse CSV To DB"
    #task csv_parse :environment do

@@ -20,6 +20,10 @@
   <%= @event.location %>
 </p>
 
+<h2>Associated Violations</h2>
+  <%= render @event.violations %>
+ 
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
