@@ -1,29 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @event.title %>
-</p>
+<div class="row" id="event-info-container">
+<div id="event-info" class="col-med-4">
+  <h2><%= @event.title %></h2>
 
-<p>
-  <b>Description:</b>
-  <%= @event.description %>
-</p>
+  <p>
+    <b>Description:</b>
+    <%= @event.description %>
+  </p>
 
-<p>
-  <b>Date:</b>
-  <%= @event.date %>
-</p>
+  <p>
+    <b>Date:</b>
+    <%= @event.date %>
+  </p>
 
-<p>
-  <b>Location:</b>
-  <%= @event.location %>
-</p>
+  <p>
+    <b>Location:</b>
+    <%= @event.location %>
+  </p>
 
-<h2>Associated Violations</h2>
-  <%= render @event.violations %>
+</div>
+  <div id="event-info-map"  class="col-md-4">
+    <%= javascript_tag "initMap('event-info-map', 'event_detail');
+      addGenericMarker(function() { return  new google.maps.LatLng(#{@event.lat}, #{@event.lng}); }());" %>
+  </div>
+
+</div>
+  <h3>Associated Violations</h3>
+    <%= render @event.violations %>
  
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+
