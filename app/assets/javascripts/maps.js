@@ -1,4 +1,4 @@
-var map;
+var map, marker;
 
 function initMap(targetId, type) {
   var latlng = new google.maps.LatLng(32.2460, -110.9595);
@@ -41,10 +41,14 @@ function initMap(targetId, type) {
 }
 
 function addGenericMarker(latLng) {
-  var  marker = new google.maps.Marker({
-    position: latLng,
-    map: map
-  });
+  if (marker) {
+    marker.setPosition(latLng);
+  } else {
+     marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+  }
 }
 
 function RoundLatLng(latLng) {
