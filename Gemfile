@@ -10,6 +10,7 @@ gem 'aws-sdk'
 gem 'will_paginate'
 gem 'mail'
 gem 'google-analytics-rails'
+gem 'chronic'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

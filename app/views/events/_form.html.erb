@@ -36,8 +36,12 @@
     <%= f.text_field :lng %>
   </div>
   <div class="form-buttons">
-    <div>
-      <%= f.submit 'Create Event', class: "btn btn-large btn-success" %>
+    <div> 
+      <% if current_page?(action: 'new') %>
+        <%= f.submit 'Create Event', class: "btn btn-large btn-success" %>
+      <% else %>
+        <%= f.submit 'Update Event', class: 'btn btn-large btn-success' %>
+      <% end %>
     </div>
     <div>
       <%= link_to 'Nevermind', events_path, class: 'btn btn-medium btn-warning' %>
