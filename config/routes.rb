@@ -10,15 +10,15 @@ CodeViolations::Application.routes.draw do
 
    root to: 'home#index'
     
-   match '/messes',           to: 'violations#messes'
-	 match '/events',		        to:	'home#events'
-	 match '/new',              to: 'violations#new'
-	 match '/edit',			        to: 'violations#edit'
-   match '/manage',           to: 'violations#manage'
-   match '/manage_events',    to: 'events#manage'
-   match '/calander',         to: 'events#calander'
-	 match '/signin',		        to: 'sessions#new',			via: 'get'
-	 match '/signout',          to: 'sessions#destroy', via: 'delete'
+   get '/messes',           to: 'violations#messes'
+	 get '/events',		        to:	'home#events'
+	 get '/new',             to: 'violations#new'
+	 put '/edit',			        to: 'violations#edit'
+   get '/manage',           to: 'violations#manage'
+   get '/manage_events',    to: 'events#manage'
+   get '/calander',         to: 'events#calander,'
+	 match '/signin',	        to: 'sessions#new',			via: 'get'
+	 match '/signout',        to: 'sessions#destroy', via: 'delete'
 	 
 
   

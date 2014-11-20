@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.1.5'
 
-gem 'rails', '3.2.9'
+gem 'rails', '4.1.7'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'bcrypt-ruby', '~>3.0.0' 
@@ -11,6 +11,7 @@ gem 'will_paginate'
 gem 'mail'
 gem 'google-analytics-rails'
 gem 'chronic'
+gem 'protected_attributes'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -33,18 +34,9 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
+gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
