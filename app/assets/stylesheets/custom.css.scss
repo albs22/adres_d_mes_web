@@ -105,46 +105,6 @@ input {
   @include box_sizing;
 }
 
-/* Mess list */
-.mess-list-item {
- 
-  /*height: 100px; */
-  width: 80%;
-  margin-top: 5px;
-  margin-bottom: 15px;
-  margin-left: 25px;
-  border-bottom: 1px solid gray;
-  float: left;
-}
 
-.mess-list-img {
-  float: left;
-  padding-right: 5px;
-  padding-bottom: 4px;
-}
-
-.mess-list-img img {
-  max-height: 120px;
-  max-width: 150px;
-}
-
-.mess-list-details {
-  float: left;
-}
-
-.mess-list-data {
-  margin-left: 15px;
-  margin-bottom: 10px;
-}
-
-.mess-list-cleaned-img {
-  padding-left: 20px;
-  float: left;
-}
-
-.pagination {
-  clear: both;
-  float: right;
-}
 
 

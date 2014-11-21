@@ -13,7 +13,7 @@
         <td class="tbl-header">Status:</td>
         <% if @violation.status == 'open' %>
           <td class="tbl-data status-open"><%= @violation.status %></td>
-        <% else %>
+        <% else %>h
           <td class="tbl-data status-closed"><%= @violation.status %></td>
         <% end %>
         <td class="tbl-header">Lat:</td>
@@ -35,7 +35,7 @@
         <td class="tbl-header">Date Found: </td>
         <td class="tbl-data"><%= @violation.date_entered %></td>
          <td class="tbl-header">Date Cleaned: </td>
-        <td class="tbl-data"><%= @violation.date_closed.to_s %></td>
+        <td class="tbl-data"><%= @violation.date_closed %></td>
       </tr>
    </table>
   </div>

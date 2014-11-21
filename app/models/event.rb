@@ -10,4 +10,8 @@ class Event < ActiveRecord::Base
     write_attribute(:date, Chronic.parse(date).to_formatted_s(:db))
   end
 
+  def self.open
+    Event.where(["date >= ?", Time.now])
+  end
+
 end

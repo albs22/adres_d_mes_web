@@ -31,6 +31,15 @@
   
     <%= f.label :Status %>
     <%= f.select :status, [["Its a Mess", "open"], ["Cleaned Up", "closed"]] %>
+
+    <%= f.label :Event %>
+
+    <%= collection_select(:violation, :event_id, Event.open, :id, :title, prompt: true) %>
+
+    <div class='event-assignment'>
+      
+
+    </div>
     
     <div class='img-form-container'>
     

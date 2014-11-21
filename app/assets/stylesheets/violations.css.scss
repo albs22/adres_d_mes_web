@@ -246,7 +246,6 @@ $admGreen: #348034;
 
 .detail-img-container {
   /* border: 1px solid black; */
-  background-color: #E3E3E3;
 }
 
 .detail-img-container div h3 {
@@ -284,6 +283,48 @@ $admGreen: #348034;
 
 }
 
+
+
+.mess-list-item {
+  /*height: 100px; */
+  width: 80%;
+  background-color: #F2F2F2;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 25px;
+  /* border-bottom: 1px solid gray;*/
+  float: left;
+}
+
+.mess-list-img {
+  float: left;
+  padding-right: 5px;
+  padding-bottom: 4px;
+}
+
+.mess-list-img img {
+  max-height: 120px;
+  max-width: 150px;
+}
+
+.mess-list-details {
+  float: left;
+}
+
+.mess-list-data {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.mess-list-cleaned-img {
+  padding-left: 20px;
+  float: left;
+}
+
+.pagination {
+  clear: both;
+  float: right;
+}
 
 
 
