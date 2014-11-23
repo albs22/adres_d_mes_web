@@ -4,26 +4,30 @@
 <div id="messes_map_canvas">
       <%= javascript_tag "initMap('messes_map_canvas', 'mess_list');" %> 
       <% @violations.each do |v| %>
-        <%= javascript_tag "addMarker('#{v.status}','#{v.description}', #{v.lat}, #{v.lng});" %>
+        <%= javascript_tag "addMarker('#{v.status}', '#{v.violation_type}', '#{v.description}', #{v.lat}, #{v.lng});" %>
       <% end %>
 </div>
 
+<div>
+  <div class="mess-map-legend">
+    <p>Legend: Cleaned: <span class="green-text">Green</span> | Big Item: <span class="red-text">Red</span> | Mess: <span class="orange-text">Orange</span> | Weeds: <span class="yellow-text">Yellow</span></p>
+  </div>
 
-<div id="messes-filter">
-  <div class="dropdown">
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-        Filter <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu" role="menu">
-        <li><%= link_to "Open", messes_path(:sort => "open") %></li>
-        <li><%= link_to "Closed", messes_path(:sort => "closed") %></li>
-        <li><%= link_to "All", messes_path %></li>
-      </ul>
+  <div id="messes-filter">
+    <div class="dropdown">
+      <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Filter <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><%= link_to "Open", messes_path(:sort => "open") %></li>
+          <li><%= link_to "Closed", messes_path(:sort => "closed") %></li>
+          <li><%= link_to "All", messes_path %></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
-
 
 <section id="friends">
     <%= render @violations %>

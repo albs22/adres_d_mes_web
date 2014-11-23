@@ -57,7 +57,7 @@ function RoundLatLng(latLng) {
     return latLng.toFixed(decimalPlaces);
 }
 
-function addMarker(name, description, lattitude, longitude)
+function addMarker(name, type, description, lattitude, longitude)
 {
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
     var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
@@ -68,12 +68,13 @@ function addMarker(name, description, lattitude, longitude)
     });
     
     //var image = "../../Content/MarkerImages/m"+ position + ".png";
+    var markerIcon = getMarkerIcon(type);
    
     var marker = new google.maps.Marker({
         position: markerLatLng,
         title: name,
         map: map,
-        //icon: image,
+        icon: markerIcon,
         draggable: false
     });
 
@@ -82,4 +83,30 @@ function addMarker(name, description, lattitude, longitude)
         
     });       
 }
+
+
+function getMarkerIcon(type) {
+  var iconBase = "/assets/marker_";
+  var icon;
+
+  console.log('Type: ' + type);
+
+  switch(type) {
+  case("mess"):
+      icon = iconBase + "orange.png";
+      break;
+    case("weeds"):
+      icon = iconBase + "yellow.png";
+      break;
+    case("bigitem"):
+      icon = iconBase + "red.png";
+      break;
+    default:
+      icon = iconBase + "orange.png";
+  }
+
+  return icon;
+}
+
+
 

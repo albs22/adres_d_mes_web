@@ -272,7 +272,14 @@ $admGreen: #348034;
 
 /* Mess List Styling */
 
+.mess-map-legend {
+  height: 40px;
+  float: left;
+}
+
+
 #messes-filter {
+  
   float: right;
 }
 
@@ -298,6 +305,7 @@ $admGreen: #348034;
 
 .mess-list-img {
   float: left;
+  margin-left: 2px;
   padding-right: 5px;
   padding-bottom: 4px;
 }
