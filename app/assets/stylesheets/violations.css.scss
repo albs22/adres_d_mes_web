@@ -6,6 +6,14 @@ $admGreen: #348034;
     
 /* Home page styles */
 
+%vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 
 .billboard-container {
   width: 100%;
@@ -295,12 +303,14 @@ $admGreen: #348034;
 .mess-list-item {
   /*height: 100px; */
   width: 80%;
+  height: 130px;
   background-color: #F2F2F2;
   margin-top: 5px;
   margin-bottom: 10px;
   margin-left: 25px;
   /* border-bottom: 1px solid gray;*/
   float: left;
+ 
 }
 
 .mess-list-img {
@@ -308,6 +318,8 @@ $admGreen: #348034;
   margin-left: 2px;
   padding-right: 5px;
   padding-bottom: 4px;
+  width: 150px;
+  @extend %vertical-align;
 }
 
 .mess-list-img img {
@@ -317,16 +329,24 @@ $admGreen: #348034;
 
 .mess-list-details {
   float: left;
+  margin-left: 15px;
 }
 
 .mess-list-data {
-  margin-left: 15px;
   margin-bottom: 10px;
+}
+
+.mess-list-details > p {
+  margin-bottom: 2px;
 }
 
 .mess-list-cleaned-img {
   padding-left: 20px;
   float: left;
+}
+
+.mess-list-dsc {
+  font-size: 1.4em;
 }
 
 .pagination {

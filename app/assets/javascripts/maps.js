@@ -89,8 +89,6 @@ function getMarkerIcon(type) {
   var iconBase = "/assets/marker_";
   var icon;
 
-  console.log('Type: ' + type);
-
   switch(type) {
   case("mess"):
       icon = iconBase + "orange.png";

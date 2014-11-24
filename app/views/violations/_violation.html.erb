@@ -7,13 +7,16 @@
 
   <div class="mess-list-data">
     <div class="mess-list-details">
-      <p>Address: <%= violation.violation_address %></p>
-      <p>Description: <%= violation.description %></p>
-      <p>Submitted: <%= violation.date_entered %></p>
+      <p class="mess-list-dsc"><%= link_to violation.description, violation %></p>
+      <p><img class="location-icon" src="/assets/location_icon.png" /> <%= violation.violation_address %></p>
+      <p><img class="date-icon" src="/assets/date_icon.png" /> <%= violation.date_entered %></p>
+      <% if violation.status == "closed" %>
+        <p><img class="cleaned-icon" src="/assets/cleaned_icon.png" /> <%= violation.date_closed %></p>
+      <% end %>
+      
       <span>
-        <%= link_to 'Details', violation %>
         <% if signed_in? %>
-          <%= link_to ' | Edit', edit_violation_path(violation) %>
+          <%= link_to 'Edit', edit_violation_path(violation) %>
           <%= link_to ' | Delete', violation, confirm: 'Are you sure you want to remove this mess.', method: :delete, class: 'destroy' %>
           <% if !violation.approved? %>
             <%= link_to ' | Approve', violation_path(violation, :update_type => "approve"), confirm: 'Are you sure you want to approve this mess?', method: :put, class: 'approve'  %>
