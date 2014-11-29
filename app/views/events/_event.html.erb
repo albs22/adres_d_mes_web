@@ -7,7 +7,7 @@
   <p>
     <% if signed_in? %>
       <%= link_to 'Edit', edit_event_path(event) %> |
-      <%= link_to 'Delete', event, confirm: 'Are you sure you want remove this event?', method: :delete %>
+      <%= link_to 'Delete', event, data: {confirm: 'Are you sure you want remove this event?'}, method: :delete %>
     <% end %>
   </p>
 </div>

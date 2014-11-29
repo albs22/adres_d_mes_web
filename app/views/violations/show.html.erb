@@ -2,7 +2,7 @@
 
 <div id="detail-map-canvas">
       <%= javascript_tag "initMap('detail-map-canvas', 'mess_detail');" %> 
-        <%= javascript_tag "addMarker('#{@violation.status}','#{@violation.description}', #{@violation.lat}, #{@violation.lng});" %>
+        <%= javascript_tag " addMessDetailMarker(#{@violation.lat}, #{@violation.lng}, '#{@violation.violation_type}');" %>
 </div>
 
 <div class="detail-info container">
@@ -13,7 +13,7 @@
         <td class="tbl-header">Status:</td>
         <% if @violation.status == 'open' %>
           <td class="tbl-data status-open"><%= @violation.status %></td>
-        <% else %>h
+        <% else %>
           <td class="tbl-data status-closed"><%= @violation.status %></td>
         <% end %>
         <td class="tbl-header">Lat:</td>

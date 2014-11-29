@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+ <div id="event-info-map"  class="col-md-4">
+    <%= javascript_tag "initMap('event-info-map', 'event_detail');
+      addGenericMarker(function() { return  new google.maps.LatLng(#{@event.lat}, #{@event.lng}); }());" %>
+  </div>
+
+
 <div class="row" id="event-info-container">
 <div id="event-info" class="col-med-4">
   <h2><%= @event.title %></h2>
@@ -19,18 +25,21 @@
     <%= @event.location %>
   </p>
 
+  <% if signed_in? %>
+    <p>
+      <%= link_to 'Edit', edit_event_path(@event) %> |
+      <%= link_to 'Back', events_path %>
+    </p>
+  <% end %>
 </div>
-  <div id="event-info-map"  class="col-md-4">
-    <%= javascript_tag "initMap('event-info-map', 'event_detail');
-      addGenericMarker(function() { return  new google.maps.LatLng(#{@event.lat}, #{@event.lng}); }());" %>
-  </div>
-
-</div>
-  <h3>Associated Violations</h3>
-    <%= render @event.violations %>
  
 
+</div>
+<div id="event-mess-container">
+  <h3>Associated Messes</h3>
+    <%= render @event.violations %>
+<div>
 
-  <%= link_to 'Edit', edit_event_path(@event) %> |
-  <%= link_to 'Back', events_path %>
+
+ 
 

@@ -18,11 +18,24 @@ namespace :db do
                   #date: DateTime.new('2014, 11, 10'),
                   location: "Some street"
                   )
-   event.violations.create!(
+    event.violations.create!(
                       lat: 32.2460,
                       lng: -110.9595,
                       violation_address: '123 Seed St',
                       description: 'Event link test mess')
+    event2 = Event.create!(lat: 32.328,
+                  lng: -110.747,
+                  title: "The Second Event",
+                  description: "The new and improved event",
+                  #date: DateTime.new('2015, 11, 3'),
+                  location: "Rillito Wash"
+                  )
+    event2.violations.create!(
+                      lat: 32.2460,
+                      lng: -110.9595,
+                      violation_address: '123 Seed St',
+                      description: 'Some in the wash')
+
 
 
   end

@@ -28,10 +28,11 @@
 
     <div id="home-newmess">
        <div class="panel panel-default panel-home">
-         <div class="panel-heading main-heading ">Recently Submitted Messes</div>
+         <div class="panel-heading main-heading ">Upcomming Events</div>
           <div class="panel-body">
-            <%= render @recent_violations %>
+            <%= render @recent_events %>
           </div>
+             <%= link_to "All Events", events_path %> | <%= link_to "Calander", calander_path %>
         </div>
     </div>
   </div>
@@ -44,13 +45,6 @@
         </div>
       </div>
   
-      <div class="panel panel-default panel-home">
-        <div class="panel-heading main-heading ">Upcomming Events</div>
-        <div class="panel-body">
-          <%= render @recent_events %>
-        </div>
-        <%= link_to "All Events", events_path %> | <%= link_to "Calander", calander_path %>
-      </div>
       
       <div class="panel panel-default panel-home">
         <div class="panel-heading main-heading ">Get the App</div>
@@ -64,10 +58,20 @@
           <img class="appstore-badge" alt="App Store Coming Soon" src="images/AppStoreBadge.png" />
         </div>
       </div>
-   
-       
     </div>
 
+
+   <div class="bottom">
+       <div class="panel panel-default panel-home">
+        <div class="panel-heading main-heading ">Recent Messes</div>
+        <div class="panel-body">
+          <%= render @recent_violations %>
+      </div>
+    </div>
+
+
   </div>
+
+
 </div>
 

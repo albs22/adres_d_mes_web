@@ -12,17 +12,18 @@
 
 /* Event List */
 .list-event {
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-  margin-bottom: 8px;
+  background-color: #F2F2F2;
+  margin-bottom: 15px;
+  width: 80%;
 }
 
 .list-event h3 {
   margin-bottom: 2px;
+  margin-left: 5px;
 }
 
 .list-event > p {
-  margin-left: 10px;
+  margin-left: 15px;
   margin-top: 2px;
   margin-bottom: 2px;
 }
@@ -48,6 +49,9 @@
   margin-left: 10px;
 }
 
+#event-mess-container {
+  margin-top: 20px;
+}
 
 
 

@@ -57,6 +57,16 @@ function RoundLatLng(latLng) {
     return latLng.toFixed(decimalPlaces);
 }
 
+function addMessDetailMarker(lat, lng, type) {
+  var latLng = new google.maps.LatLng(lat, lng);
+  var markerIcon = getMarkerIcon(type);
+  var mark = new google.maps.Marker({
+    position: latLng,
+    map: map,
+    icon: markerIcon
+  });
+}
+
 function addMarker(name, type, description, lattitude, longitude)
 {
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
@@ -102,7 +112,6 @@ function getMarkerIcon(type) {
     default:
       icon = iconBase + "orange.png";
   }
-
   return icon;
 }
 
