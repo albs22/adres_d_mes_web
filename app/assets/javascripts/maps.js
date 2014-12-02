@@ -67,18 +67,17 @@ function addMessDetailMarker(lat, lng, type) {
   });
 }
 
-function addMarker(name, type, description, lattitude, longitude)
+function addMarker(state, type, description, lattitude, longitude)
 {
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
-    var infoContentString = '<h3>' + name + '</h3>' + '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
+    var infoContentString = '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
 
     var infoWindow = new google.maps.InfoWindow({
         content: infoContentString
-        
     });
     
     //var image = "../../Content/MarkerImages/m"+ position + ".png";
-    var markerIcon = getMarkerIcon(type);
+    var markerIcon = getMarkerIcon(type, state);
    
     var marker = new google.maps.Marker({
         position: markerLatLng,
@@ -95,12 +94,19 @@ function addMarker(name, type, description, lattitude, longitude)
 }
 
 
-function getMarkerIcon(type) {
+function getMarkerIcon(type, state) {
   var iconBase = "/assets/marker_";
   var icon;
 
+  if (state) {
+    if (state === "closed") {
+      return iconBase + "green.png";
+    }
+  }
+
+
   switch(type) {
-  case("mess"):
+    case("mess"):
       icon = iconBase + "orange.png";
       break;
     case("weeds"):
