@@ -31,8 +31,8 @@
          <div class="panel-heading main-heading ">Upcomming Events</div>
           <div class="panel-body">
             <%= render @recent_events %>
+             <%= link_to "All Events", events_path, class: 'all-events-link' %>
           </div>
-             <%= link_to "All Events", events_path %> | <%= link_to "Calander", calander_path %>
         </div>
     </div>
   </div>
@@ -49,28 +49,28 @@
       <div class="panel panel-default panel-home">
         <div class="panel-heading main-heading ">Get the App</div>
         <div class="panel-body">
-         <a class="get-app" href="https://play.google.com/store/apps/details?id=com.addressdmess">
-           <img alt="Android app on Google Play"
-                  src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
-                  </a>
-                  <br />
-                  <br />
-          <img class="appstore-badge" alt="App Store Coming Soon" src="images/AppStoreBadge.png" />
+          <div class="get-app-container">
+           <a class="get-app" href="https://play.google.com/store/apps/details?id=com.addressdmess">
+             <img alt="Android app on Google Play"
+                    src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+                    </a>
+                    <br />
+                    <br />
+            <img class="appstore-badge" alt="App Store Coming Soon" src="images/AppStoreBadge.png" />
+          </div>
         </div>
       </div>
     </div>
 
 
    <div class="bottom">
-       <div class="panel panel-default panel-home">
+       <div class="panel panel-default panel-bottom">
         <div class="panel-heading main-heading ">Recent Messes</div>
         <div class="panel-body">
           <%= render @recent_violations %>
+        </div>
       </div>
     </div>
-
-
-  </div>
 
 
 </div>

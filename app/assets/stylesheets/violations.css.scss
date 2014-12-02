@@ -60,6 +60,13 @@ $admGreen: #348034;
   margin-top: 10px;
 }
 
+.panel-bottom {
+  width: 97%;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .panel-heading {
   background-color: $admGreen !important;
@@ -196,6 +203,10 @@ $admGreen: #348034;
 }
 
 #home-apps {
+  text-align: center;
+}
+
+.get-app-container {
   text-align: center;
 }
 
