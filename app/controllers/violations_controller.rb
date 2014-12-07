@@ -86,7 +86,7 @@ class ViolationsController < ApplicationController
      if params[:update_type] = "approve"
        @violation.approved = true
        if @violation.save 
-         flash[:success] = "Mess approved - " + params[:update_type]
+         flash[:success] = "Mess Approved!"
        else
          flash[:error] = "Could not approve mess"
        end

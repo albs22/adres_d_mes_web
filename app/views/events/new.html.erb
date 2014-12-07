@@ -5,12 +5,10 @@
     <div id="event-map-canvas">
       <%= javascript_tag "initMap('event-map-canvas', 'event_create');" %>
     </div>
-</div>
+  </div>
 
-
-<div class="span4">
-<%= render 'form' %>
-
-<%= link_to 'Back', events_path %>
-</div>
+  <div class="span4">
+    <%= render 'form' %>
+    <%= link_to 'Back', events_path %>
+  </div>
 </div>

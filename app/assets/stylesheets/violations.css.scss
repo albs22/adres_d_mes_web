@@ -164,10 +164,11 @@ $admGreen: #348034;
 
 /* Edit form image styles */
 .img-edit-container {
- float: left;
+  float: left;
   width: 100%;
   display: block;
   clear: both;
+  margin-bottom: 10px;
 }
 
 .img-edit-thumb
@@ -184,7 +185,6 @@ $admGreen: #348034;
 }
 
 .img-form-container{
-  height: 200px;
   margin-top: 10px;
 }
 
@@ -320,7 +320,7 @@ $admGreen: #348034;
 
 .mess-list-item {
   /*height: 100px; */
-  width: 80%;
+  width: 90%;
   height: 130px;
   background-color:  #F2F2F2;
   margin-top: 5px;

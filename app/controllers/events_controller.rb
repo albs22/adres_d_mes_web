@@ -44,6 +44,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+    #@event.date = @event.date.strftime("%m/%d/%Y %l:%M %p")
   end
 
   # POST /events

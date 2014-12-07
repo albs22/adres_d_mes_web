@@ -11,8 +11,6 @@
     </div>
   <% end %>
   
-  
-  
     <%= f.label :Latitude %>
     <%= f.text_field :lat %>
   
@@ -21,55 +19,56 @@
 
     <%= f.label :Violation_address, 'Location' %>
     <%= f.text_field :violation_address %>
-  
-  
-    <%= f.label :Type %>
-    <%= f.select :violation_type, [["Mess", "mess"], ["Weeds", "weeds"], ["Big Item", "bigitem"]] %>
 
     <%= f.label :Description %>
     <%= f.text_field :description %>
+    
+    <%= f.label :Type %>
+    <%= f.select :violation_type, [["Mess", "mess"], ["Weeds", "weeds"], ["Big Item", "bigitem"]] %>
   
-    <%= f.label :Status %>
-    <%= f.select :status, [["Its a Mess", "open"], ["Cleaned Up", "closed"]] %>
+    <% if current_page?(action: 'edit') %>
+      <%= f.label :date_entered, 'Date Created' %>
+      <%= f.text_field :date_entered, :value => @violation.date_entered.strftime("%m/%d/%Y %l:%M %p"), 'data-behavior' => 'datepicker' %>
+      
+      <% if @violation.status == 'closed' %>
+        <%= f.label :date_closed, 'Date Closed' %>
+        <%= f.text_field :date_closed, :value => @violation.date_closed.strftime("%m/%d/%Y %l:%M %p"), 'data-behavior' => 'datepicker' %>
+      <% end %>
+      
+      <%= f.label :Status %>
+      <%= f.select :status, [["Its a Mess", "open"], ["Cleaned Up", "closed"]] %>
+    <% end %>
 
     <%= f.label :Event %>
-
     <%= collection_select(:violation, :event_id, Event.open, :id, :title, prompt: true) %>
 
-    <div class='event-assignment'>
-      
-
-    </div>
-    
     <div class='img-form-container'>
-    
-    
       <div class='img-edit-container'>
-      <% if current_page?(action: 'edit') %>
-        <div class='img-edit-thumb'>
-        <%= image_tag @violation.image_before.url(:thumb) %>
+        <% if current_page?(action: 'edit') %>
+          <div class='img-edit-thumb'>
+            <%= image_tag @violation.image_before.url(:thumb) %>
+          </div>
+        <% end %>
+      
+        <div class='img-edit-field'>
+          <%= f.label :image_before %>
+          <%= f.file_field :image_before %>
         </div>
-      <% end %>
-    
-      <div class='img-edit-field'>
-        <%= f.label :image_before %>
-        <%= f.file_field :image_before %>
-      </div>
       </div>
       
-       <div class='img-edit-container'>
+      
       <% if current_page?(action: 'edit') %>
-        <div class='img-edit-thumb'>
-        <%= image_tag @violation.image_after.url(:thumb) %>
-        </div>
-      <% end %>
-    
-      <div class='img-edit-field'>
-        <%= f.label :image_after %>
-        <%= f.file_field :image_after %>
-      </div>
-      </div
-    </div>
+        <div class='img-edit-container'>
+          <div class='img-edit-thumb'>
+            <%= image_tag @violation.image_after.url(:thumb) %>
+          </div>
+          <div class='img-edit-field'>
+            <%= f.label :image_after %>
+            <%= f.file_field :image_after %>
+          </div>
+        </div
+    <% end %>
+  </div>
    
   
   <br />
@@ -86,6 +85,5 @@
         <%= link_to 'Nevermind', violations_path, class: 'btn btn-medium btn-warning' %>
       </div>
     </div>
-  
-  
+
 <% end %>

@@ -18,12 +18,12 @@ class Violation < ActiveRecord::Base
   }, :default_url => '/resources/images/after_missing_:style.png'
 
   validates_attachment :image_before,
-    :presence => false,
+   # :presence => false,
     :size => { :in => 0..8.megabytes },
     :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
   validates_attachment :image_after,
-    :presence => false,
+   # :presence => false,
     :size => { :in => 0..8.megabytes },
     :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
