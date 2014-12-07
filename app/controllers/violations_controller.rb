@@ -40,7 +40,7 @@ class ViolationsController < ApplicationController
 
   # POST /vioaltions
   def create
-    @violation = Violation.new(params[:violation])
+    @violation = Violation.new(mess_params)
     @violation.date_entered = DateTime.now 
 # @violation.event = Event.find(params[:event])
 #   respond_to do |format|
@@ -124,6 +124,11 @@ class ViolationsController < ApplicationController
 
     def signed_in_user
       redirect_to root_path unless signed_in?
+    end
+
+    def mess_params
+      params.require(:violation).permit(:lat, :lng, :violation_address, :violation_type,
+          :description, :status, :image_before, :image_after, :approved, :date_closed, :event_id)
     end
         
 

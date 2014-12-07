@@ -15,7 +15,17 @@ class Violation < ActiveRecord::Base
   has_attached_file :image_after, styles: {
     thumb: '150x120>',
     full: '1200x900>'
-  }, :default_url => '/resources/images/missing_:style.png'
+  }, :default_url => '/resources/images/after_missing_:style.png'
+
+  validates_attachment :image_before,
+    :presence => false,
+    :size => { :in => 0..8.megabytes },
+    :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
+
+  validates_attachment :image_after,
+    :presence => false,
+    :size => { :in => 0..8.megabytes },
+    :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/ }
 
   def image_before_url_f
     image_before.url(:full)

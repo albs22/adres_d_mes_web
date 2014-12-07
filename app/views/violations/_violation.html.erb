@@ -25,12 +25,11 @@
        </span>
     </div>
     <!-- Cleaned Mess Section -->
+    
     <%if violation.status=="closed" %>
       <div class="mess-list-cleaned-img">
-        <img src="images/Cleaned96.jpg" alt="Cleaned Icon" />
-    
-      </div>
+        <%= image_tag violation.image_after.url(:thumb) %>
     <% end %>
-    
+    </div>
   </div>
 </div>
