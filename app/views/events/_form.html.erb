@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :date, 'Event Date' %>
-    <%= f.text_field :date, :value => @event.date.strftime("%m/%d/%Y %l:%M %p"), 'data-behavior' => 'datepicker', :placeholder => "09/13/2014 10:00am" %>
+    <%= f.text_field :date, :value => (@event.date.blank? ? '' : @event.date.strftime("%m/%d/%Y %l:%M %p")), 'data-behavior' => 'datepicker', :placeholder => "09/13/2014 10:00am" %>
   </div>
   <div class="field">
     <%= f.label :location %><br />

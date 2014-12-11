@@ -28,11 +28,11 @@
   
     <% if current_page?(action: 'edit') %>
       <%= f.label :date_entered, 'Date Created' %>
-      <%= f.text_field :date_entered, :value => @violation.date_entered.strftime("%m/%d/%Y %l:%M %p"), 'data-behavior' => 'datepicker' %>
+      <%= f.text_field :date_entered, :value => (@violation.date_entered.blank? ? '' : @violation.date_entered.strftime("%m/%d/%Y %l:%M %p")), 'data-behavior' => 'datepicker' %>
       
       <% if @violation.status == 'closed' %>
         <%= f.label :date_closed, 'Date Closed' %>
-        <%= f.text_field :date_closed, :value => @violation.date_closed.strftime("%m/%d/%Y %l:%M %p"), 'data-behavior' => 'datepicker' %>
+        <%= f.text_field :date_closed, :value => (@violation.date_closed.blank? ? '' : @violation.date_closed.strftime("%m/%d/%Y %l:%M %p")), 'data-behavior' => 'datepicker' %>
       <% end %>
       
       <%= f.label :Status %>
