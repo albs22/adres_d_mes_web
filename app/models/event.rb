@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   has_many :violations
   has_one :user
 
+  scope :upcoming, lambda { where("date >= ?", Date.today) }
+
   attr_accessible :date, :description, :lat, :lng, :location, :title, :user
 
   def date=(date)

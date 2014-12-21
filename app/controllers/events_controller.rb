@@ -3,7 +3,9 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.order('date').paginate(page: params[:page], :per_page => 20)
+
+    @current_events 
+    @events = Event.upcoming.order('date').paginate(page: params[:page], :per_page => 20)
     
     respond_to do |format|
       format.html # index.html.erb
