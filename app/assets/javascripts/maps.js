@@ -70,7 +70,7 @@ function addMessDetailMarker(lat, lng, type) {
 function addMarker(state, type, description, lattitude, longitude)
 {
     var markerLatLng = new google.maps.LatLng(lattitude, longitude);
-    var infoContentString = '<p>' + description + '</p>' + '<img alt="V_001_sm" src="/assets/v_001_sm.jpg">'
+    var infoContentString = '<p>' + description + '</p>' + '<img alt="V_001_sm" src="images/v_001_sm.jpg">'
 
     var infoWindow = new google.maps.InfoWindow({
         content: infoContentString
@@ -95,7 +95,7 @@ function addMarker(state, type, description, lattitude, longitude)
 
 
 function getMarkerIcon(type, state) {
-  var iconBase = "/assets/marker_";
+  var iconBase = "images/marker_";
   var icon;
 
   if (state) {
