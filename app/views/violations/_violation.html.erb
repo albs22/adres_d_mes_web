@@ -8,10 +8,10 @@
   <div class="mess-list-data">
     <div class="mess-list-details">
       <p class="mess-list-dsc"><%= link_to violation.description, violation %></p>
-      <p><img class="location-icon" src="/assets/location_icon.png" /> <%= violation.violation_address %></p>
-      <p><img class="date-icon" src="/assets/date_icon.png" /> <%= violation.date_entered %></p>
+      <p><img class="location-icon" src="assets/location_icon.png" /> <%= violation.violation_address %></p>
+      <p><img class="date-icon" src="assets/date_icon.png" /> <%= violation.date_entered %></p>
       <% if violation.status == "closed" %>
-        <p><img class="cleaned-icon" src="/assets/cleaned_icon.png" /> <%= violation.date_closed %></p>
+        <p><img class="cleaned-icon" src="assets/cleaned_icon.png" /> <%= violation.date_closed %></p>
       <% end %>
       
       <span>
