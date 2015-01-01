@@ -17,12 +17,17 @@
     <div class="dropdown">
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Filter <span class="caret"></span>
+            Filters <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
+ <li>Last 3 Months</li>
           <li><%= link_to "Open", messes_path(:sort => "open") %></li>
           <li><%= link_to "Closed", messes_path(:sort => "closed") %></li>
           <li><%= link_to "All", messes_path %></li>
+	  <li role="presentation" class="divider"></li>
+	  <li>Last Week</li>
+	  <li>Last Month</li>
+	  <li>Last 3 Months</li>
         </ul>
       </div>
     </div>

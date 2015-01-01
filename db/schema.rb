@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141121043011) do
+ActiveRecord::Schema.define(version: 20141221203136) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20141121043011) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -39,28 +39,28 @@ ActiveRecord::Schema.define(version: 20141121043011) do
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "violations", force: true do |t|
-    t.datetime "date_entered"
-    t.string   "type"
-    t.string   "status"
-    t.string   "description"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.float    "lat"
-    t.string   "violation_type"
-    t.string   "violation_address"
-    t.string   "photo_name"
-    t.string   "image_before_file_name"
-    t.string   "image_before_content_type"
-    t.integer  "image_before_file_size"
-    t.datetime "image_before_updated_at"
-    t.string   "image_after_file_name"
-    t.string   "image_after_content_type"
-    t.integer  "image_after_file_size"
-    t.datetime "image_after_updated_at"
-    t.float    "lng"
-    t.boolean  "approved",                  default: false
-    t.integer  "event_id"
-    t.datetime "date_closed"
+    t.timestamp "date_entered"
+    t.string    "type"
+    t.string    "status"
+    t.string    "description"
+    t.timestamp "created_at",                                null: false
+    t.timestamp "updated_at",                                null: false
+    t.float     "lat"
+    t.float     "lng"
+    t.string    "violation_type"
+    t.string    "violation_address"
+    t.string    "photo_name"
+    t.string    "image_before_file_name"
+    t.string    "image_before_content_type"
+    t.integer   "image_before_file_size"
+    t.timestamp "image_before_updated_at"
+    t.string    "image_after_file_name"
+    t.string    "image_after_content_type"
+    t.integer   "image_after_file_size"
+    t.timestamp "image_after_updated_at"
+    t.boolean   "approved",                  default: false
+    t.integer   "event_id"
+    t.date      "date_closed"
   end
 
 end
