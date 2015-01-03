@@ -20,6 +20,7 @@ CodeViolations::Application.routes.draw do
 	 match '/signin',	        to: 'sessions#new',			via: 'get'
 	 match '/signout',        to: 'sessions#destroy', via: 'delete'
 	 
+	 match '/api/all',				to: 'api/violations#index', via: 'get'
 
   
   # The priority is based upon order of creation:

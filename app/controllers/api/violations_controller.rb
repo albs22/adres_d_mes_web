@@ -1,12 +1,11 @@
 class Api::ViolationsController < ApplicationController
+ respond_to :json
 
   def index
     @violations = Violation.where(:approved => 't').where(:status => 'open')
-    respond_to do |format|
-      format.json { render :json => {:violations => @violations.as_json(:only =>
+       render :json => {:violations => @violations.as_json(:only =>
          [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
-         :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]}
-    end
+         :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]
   end
 
   def create
