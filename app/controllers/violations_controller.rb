@@ -2,14 +2,27 @@ class ViolationsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
-    @violations = Violation.paginate(page: params[:page], :per_page => 20)
     @violations = @violations.where(:approved => 't')
-    if params[:sort] == 'open'
-      @violations = @violations.where(:status => 'open')
+
+    filtering_params(params).each do |key, value|
+      @violations = @violations.public_send(key, value) if value.present?
     end
-    if params[:sort] == 'closed'
-      @violations = @violations.where(:status => 'closed')
-    end
+
+
+
+
+    @violations = Violation.paginate(page: params[:page], :per_page => 20)
+
+
+    
+
+
+#    if params[:sort] == 'open'
+#     @violations = @violations.where(:status => 'open')
+#   end
+#   if params[:sort] == 'closed'
+#     @violations = @violations.where(:status => 'closed')
+#   end
   end
   
   def show
@@ -130,6 +143,10 @@ class ViolationsController < ApplicationController
     def mess_params
       params.require(:violation).permit(:lat, :lng, :violation_address, :violation_type,
           :description, :status, :image_before, :image_after, :approved, :date_closed, :event_id)
+    end
+
+    def filtering_params(params)
+      params.slice(:status, :week, :month, :month3)
     end
         
 

@@ -1,6 +1,10 @@
 class Violation < ActiveRecord::Base      
   belongs_to :event
 
+  scope :status, -> (status) { where status: status }
+#scope :week, -> { where ("date_entered >= ?", Date.today) }
+scope :date, -> { order(date_enteredi: :desc ) }
+
   attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 
   :status, :violation_address, :violation_type, :image_before, :image_after,:approved, :event
 
