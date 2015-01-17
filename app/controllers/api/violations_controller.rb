@@ -8,6 +8,19 @@ class Api::ViolationsController < ApplicationController
          :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]
   end
 
+	def home
+		@violations = Violation.approved.status("open").date_desc.first(2)
+		@events = Event.upcoming.first(1)
+	
+	#	render_mess_json(@violations)	
+
+		render :json => { :violations => @violations, :events => @events }
+
+
+	
+	end
+
+
   def create
     #Remove Image urls from incoming JSON
     remove_unused_params(params[:violation])
@@ -60,6 +73,12 @@ class Api::ViolationsController < ApplicationController
      param.delete(:image_after_url_f)
      param.delete(:image_after_url_t)
   end
+
+	def render_mess_json(mess)
+		    render :json => {:violations => mess.as_json(:only =>
+         [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
+         :methods => [:date_submitted, :image_before_url_t, :image_before_url_f, :image_after_url_t, :image_after_f])  }, :callback => params[:callback]
+	end
 
 end
 
