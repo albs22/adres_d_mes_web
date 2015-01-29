@@ -2,20 +2,21 @@ class ViolationsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
-    @violations = @violations.where(:approved => 't')
+    @violations = Violation.approved
 
+     
+    @status_filter = "Status"
     filtering_params(params).each do |key, value|
+      if key == 'status'
+        puts "key: " + key
+        puts "value: " + value 
+        @status_filter = value
+      end
+
       @violations = @violations.public_send(key, value) if value.present?
     end
 
-
-
-
-    @violations = Violation.paginate(page: params[:page], :per_page => 20)
-
-
-    
-
+    @violations = @violations.paginate(page: params[:page], :per_page => 20)
 
 #    if params[:sort] == 'open'
 #     @violations = @violations.where(:status => 'open')
@@ -146,7 +147,7 @@ class ViolationsController < ApplicationController
     end
 
     def filtering_params(params)
-      params.slice(:status, :week, :month, :month3)
+      params.slice(:status, :time_span)
     end
         
 

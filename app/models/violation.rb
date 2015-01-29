@@ -2,9 +2,9 @@ class Violation < ActiveRecord::Base
   belongs_to :event
 
   scope :status, -> (status) { where status: status }
-	scope :approved, -> { where("approved = 't'") }
+  scope :approved, -> { where("approved = 't'") }
 #scope :week, -> { where ("date_entered >= ?", Date.today) }
-scope :date_desc, -> { order(date_entered: :desc ) }
+  scope :date_desc, -> { order(date_entered: :desc ) }
 
   attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 
   :status, :violation_address, :violation_type, :image_before, :image_after,:approved, :event
@@ -52,6 +52,14 @@ scope :date_desc, -> { order(date_entered: :desc ) }
 
   def image_after_url_t
     image_after.url(:thumb)
+  end
+
+  def pretty_type
+    if violation_type == "bigitem"
+      "Big Item"
+    else
+      violation_type  
+    end
   end
   
  # def format_date
