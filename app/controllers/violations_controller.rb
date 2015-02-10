@@ -84,9 +84,14 @@ class ViolationsController < ApplicationController
   #PUT /violations/1
   def update
     @violation = Violation.find(params[:id])
-   
+
     if !params[:update_type].present? 
+      #Format date beacause datepicker
+      params[:violation][:date_entered] = format_date_db(params[:violation][:date_entered])
       if @violation.update_attributes(params[:violation])
+
+        puts @violation.date_entered
+
         if @violation.status == 'closed'
           @violation.date_closed = Time.now
           @violation.save

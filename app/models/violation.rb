@@ -11,6 +11,8 @@ class Violation < ActiveRecord::Base
 
   attr_protected :id
   
+  validates :date_entered, presence: true
+  validates :description, presence: true
 
   has_attached_file :image_before, styles: {
     thumb: '150x120>',
@@ -58,15 +60,8 @@ class Violation < ActiveRecord::Base
     if violation_type == "bigitem"
       "Big Item"
     else
-      violation_type  
+      violation_type
     end
   end
-  
- # def format_date
-  #  if date_entered
-   #   date_entered = date_entered.to_formatted_s(:long_ordinal)
-   # end
- # end
-
 
 end
