@@ -6,6 +6,16 @@ class Violation < ActiveRecord::Base
 #scope :week, -> { where ("date_entered >= ?", Date.today) }
   scope :date_desc, -> { order(date_entered: :desc ) }
 
+
+
+scope :time_span, -> time_span {
+    puts "!!! -- " + time_span + " -----!!!!" 
+# case |time_ago|
+#   when "week"
+#     where("date_entered >= :date", :date => 1.week.ago)
+#   end
+  }
+
   attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 
   :status, :violation_address, :violation_type, :image_before, :image_after,:approved, :event
 

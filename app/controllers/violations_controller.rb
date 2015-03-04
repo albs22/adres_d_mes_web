@@ -6,12 +6,18 @@ class ViolationsController < ApplicationController
 
      
     @status_filter = "Status"
+    @date_filter = "Date"
+
     filtering_params(params).each do |key, value|
-      if key == 'status'
         puts "key: " + key
         puts "value: " + value 
+
+      if key == 'status'
         @status_filter = value
-      end
+     elsif key=='time_span'
+        @date_filter = value
+     end
+
 
       @violations = @violations.public_send(key, value) if value.present?
     end
