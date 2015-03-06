@@ -8,14 +8,14 @@
       <% end %>
 </div>
 
-<div>
+<div class="row">
   <div class="mess-map-legend">
     <p><span class="bold">Legend:</span> Cleaned: <span class="green-text">Green</span> | Big Item: <span class="red-text">Red</span> | Mess: <span class="orange-text">Orange</span> | Weeds: <span class="yellow-text">Yellow</span></p>
   </div>
 
   <div id="messes-filter">
 
-     <div class="dropdown">
+     <div class="filter-dropdown">
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <%= @date_filter %><span class="caret"></span>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="dropdown">
+    <div class="filter-dropdown">
       <div class="btn-group">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
             <%= @status_filter %> <span class="caret"></span>

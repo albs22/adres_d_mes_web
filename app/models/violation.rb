@@ -8,12 +8,19 @@ class Violation < ActiveRecord::Base
 
 
 
-scope :time_span, -> time_span {
+  scope :time_span, -> time_span {
     puts "!!! -- " + time_span + " -----!!!!" 
-# case |time_ago|
-#   when "week"
-#     where("date_entered >= :date", :date => 1.week.ago)
-#   end
+
+    case time_span
+      when "week"
+        filter_date = 1.week.ago
+      when "month"
+        filter_date = 1.month.ago
+      when "month_3"
+        filter_date = 3.month.ago
+    end
+
+    where("date_entered >= :date", :date => filter_date)
   }
 
   attr_accessible :lat, :lng, :date_entered, :date_closed, :description, 

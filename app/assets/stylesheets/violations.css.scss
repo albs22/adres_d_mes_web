@@ -301,12 +301,18 @@ $admGreen: #348034;
 .mess-map-legend {
   height: 40px;
   float: left;
+  margin-left: 15px;
 }
-
 
 #messes-filter {
   
   float: right;
+  margin-right: 15px;
+}
+
+.filter-dropdown {
+  float: left;
+  margin-left: 15px;
 }
 
 #messes_map_canvas {
@@ -315,6 +321,7 @@ $admGreen: #348034;
   margin-bottom: 20px;
 
 }
+
 
 
 
