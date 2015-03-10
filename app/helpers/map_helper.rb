@@ -5,7 +5,7 @@ module MapHelper
   end
 
   def google_api_url
-    "http://maps.googleapis.com/maps/api/js"
+    "https://maps.googleapis.com/maps/api/js"
   end
 
   def default_lat
