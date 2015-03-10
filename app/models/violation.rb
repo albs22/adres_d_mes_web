@@ -1,16 +1,14 @@
 class Violation < ActiveRecord::Base      
   belongs_to :event
 
-  scope :status, -> (status) { where status: status }
+  scope :status, -> status { 
+    if status != "all"
+      where(status: status)
+    end
+  }
   scope :approved, -> { where("approved = 't'") }
-#scope :week, -> { where ("date_entered >= ?", Date.today) }
   scope :date_desc, -> { order(date_entered: :desc ) }
-
-
-
   scope :time_span, -> time_span {
-    puts "!!! -- " + time_span + " -----!!!!" 
-
     case time_span
       when "week"
         filter_date = 1.week.ago
@@ -18,6 +16,8 @@ class Violation < ActiveRecord::Base
         filter_date = 1.month.ago
       when "month_3"
         filter_date = 3.month.ago
+      when "all"
+        filter_date = 20.years.ago
     end
 
     where("date_entered >= :date", :date => filter_date)
@@ -80,5 +80,5 @@ class Violation < ActiveRecord::Base
       violation_type
     end
   end
-
+  
 end

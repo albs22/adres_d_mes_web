@@ -2,11 +2,10 @@ class ViolationsController < ApplicationController
   before_filter :signed_in_user, only: [:edit, :destroy, :manage]
 
   def index
-    @violations = Violation.approved
-
+    unfiltered_violations = Violation.approved.date_desc
      
-    @status_filter = "Status"
-    @date_filter = "Date"
+    @status_filter = "open"
+    @date_filter = "month"
 
     filtering_params(params).each do |key, value|
         puts "key: " + key
@@ -14,22 +13,14 @@ class ViolationsController < ApplicationController
 
       if key == 'status'
         @status_filter = value
-     elsif key=='time_span'
+      elsif key=='time_span'
         @date_filter = value
-     end
-
-
-      @violations = @violations.public_send(key, value) if value.present?
+      end
+#      @violations = unfiltered_violations.public_send(key, value).date_desc if value.present?
     end
 
+    @violations = unfiltered_violations.status(@status_filter).time_span(@date_filter)
     @violations = @violations.paginate(page: params[:page], :per_page => 20)
-
-#    if params[:sort] == 'open'
-#     @violations = @violations.where(:status => 'open')
-#   end
-#   if params[:sort] == 'closed'
-#     @violations = @violations.where(:status => 'closed')
-#   end
   end
   
   def show
@@ -67,7 +58,7 @@ class ViolationsController < ApplicationController
 #   respond_to do |format|
       puts "New Mess Created"
       if @violation.save
-        flash[:success] = "Violation Submitted!"
+        flash[:success] = "Mess Submitted!"
   # redirect_to :action=>'show', :id => @violation.id #@violation, notice: 'Violation Created.'
         puts "Send Approval Email"
         MessMailer.approval_email(@violation).deliver
