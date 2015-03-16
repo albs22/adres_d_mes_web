@@ -1,5 +1,6 @@
 class Api::ViolationsController < ApplicationController
- respond_to :json
+  skip_before_action :verify_authenticity_token
+  respond_to :json
 
   def index
 #o    @violations = Violation.where(:approved => 't').where(:status => 'open')
