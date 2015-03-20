@@ -1,4 +1,9 @@
+<div class="form-group">
 <%= form_for(@violation) do |f| %>
+
+
+
+
   <% if @violation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@violation.errors.count, "error") %> prohibited this violation from being saved:</h2>
@@ -87,3 +92,4 @@
     </div>
 
 <% end %>
+</div>
