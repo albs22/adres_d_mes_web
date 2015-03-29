@@ -23,6 +23,7 @@ CodeViolations::Application.routes.draw do
 	 match '/api/all',				to: 'api/violations#index', via: 'get'
 	 match '/api/home',				to: 'api/violations#home',  via: 'get'
    match '/api/violations', to: 'api/violations#index', via: 'get'
+   match '/api/violations', to: 'api/violations#create', via: 'post'
 
   
   # The priority is based upon order of creation:

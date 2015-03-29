@@ -1,8 +1,8 @@
 class Api::ViolationsController < ApplicationController
- respond_to :json
+  skip_before_action :verify_authenticity_token
+  respond_to :json
 
   def index
-#    @violations = Violation.where(:approved => 't').where(:status => 'open')
     @violations = Violation.approved.status('open').time_span('month').date_desc
        render :json => {:violations => @violations.as_json(:only =>
          [:id, :lat, :lng, :description, :violation_type, :violation_address, :status], 
