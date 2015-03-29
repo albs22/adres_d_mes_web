@@ -14,7 +14,6 @@ $admGreen: #348034;
   transform: translateY(-50%);
 }
 
-
 .panel-home {
   width: 95%;
   margin-left: auto;
@@ -29,7 +28,6 @@ $admGreen: #348034;
   margin-right: auto;
 }
 
-
 .panel-heading {
   background-color: $admGreen !important;
   text-align: center;
@@ -41,7 +39,6 @@ $admGreen: #348034;
   color: #fff;
 }
 
-
 .main-new-mess {
   padding-bottom: 17px;
 }
@@ -51,7 +48,6 @@ $admGreen: #348034;
   margin: auto;
   text-align: center;
 }
-
 
 .mess-count {
   border: 2px $admGreen solid;
@@ -216,8 +212,7 @@ $admGreen: #348034;
   margin-left: 15px;
 }
 
-#messes-filter {
-  
+#messes-filter { 
   float: right;
   margin-right: 15px;
 }
@@ -231,23 +226,20 @@ $admGreen: #348034;
   width: 100%;
   height: 250px;
   margin-bottom: 20px;
-
 }
 
 
-
+/* Mess Styles */
+.mess-container {
+  float: left;
+  width: 90%;
+}
 
 .mess-list-item {
-  /*height: 100px; */
-  width: 90%;
-  height: 130px;
   background-color:  #F2F2F2;
   margin-top: 5px;
   margin-bottom: 10px;
-  margin-left: 25px;
-  /* border-bottom: 1px solid gray;*/
-  float: left;
- 
+  margin-left: 10px;
 }
 
 .mess-list-img {
@@ -255,8 +247,8 @@ $admGreen: #348034;
   margin-left: 2px;
   padding-right: 5px;
   padding-bottom: 4px;
+  padding-top: 2px;
   width: 150px;
-  @extend %vertical-align;
 }
 
 .mess-list-img img {
@@ -296,6 +288,4 @@ $admGreen: #348034;
   clear: both;
   float: right;
 }
-
-
 

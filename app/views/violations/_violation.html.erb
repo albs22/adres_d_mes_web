@@ -1,35 +1,37 @@
-<div class="mess-list-item row" id="<%= violation.id %>">
-  <div class="mess-list-img">
-    <%= link_to violation, class: 'pic-link' do %>
-      <%= image_tag violation.image_before.url(:thumb) %>
-    <% end %>
-  </div>
-
-  <div class="mess-list-data">
-    <div class="mess-list-details">
-      <p class="mess-list-dsc"><%= link_to violation.description, violation %></p>
-      <p><img class="location-icon" src="images/location_icon.png" /> <%= violation.violation_address %></p>
-      <p><img class="date-icon" src="images/date_icon.png" /> <%= violation.date_entered %></p>
-      <% if violation.status == "closed" %>
-        <p><img class="cleaned-icon" src="images/cleaned_icon.png" /> <%= violation.date_closed %></p>
+<div class="fluid-container mess-container">
+  <div class="mess-list-item row" id="<%= violation.id %>">
+    <div class="mess-list-img col-s-12">
+      <%= link_to violation, class: 'pic-link' do %>
+        <%= image_tag violation.image_before.url(:thumb) %>
       <% end %>
-      
-      <span>
-        <% if signed_in? %>
-          <%= link_to 'Edit', edit_violation_path(violation) %>
-          <%= link_to ' | Delete', violation, data: {confirm: 'Are you sure you want to remove this mess.'}, method: :delete, class: 'destroy' %>
-          <% if !violation.approved? %>
-            <%= link_to ' | Approve', violation_path(violation, :update_type => "approve"), data: {confirm: 'Are you sure you want to approve this mess?'}, method: :put, class: 'approve'  %>
-          <% end %>
-        <% end %>
-       </span>
     </div>
-    <!-- Cleaned Mess Section -->
-    
-    <%if violation.status=="closed" %>
-      <div class="mess-list-cleaned-img">
-        <%= image_tag violation.image_after.url(:thumb) %>
+
+    <div class="mess-list-data">
+      <div class="mess-list-details">
+        <p class="mess-list-dsc"><%= link_to violation.description, violation %></p>
+        <p><img class="location-icon" src="images/location_icon.png" /> <%= violation.violation_address %></p>
+        <p><img class="date-icon" src="images/date_icon.png" /> <%= violation.date_entered %></p>
+        <% if violation.status == "closed" %>
+          <p><img class="cleaned-icon" src="images/cleaned_icon.png" /> <%= violation.date_closed %></p>
+        <% end %>
+        
+        <span>
+          <% if signed_in? %>
+            <%= link_to 'Edit', edit_violation_path(violation) %>
+            <%= link_to ' | Delete', violation, data: {confirm: 'Are you sure you want to remove this mess.'}, method: :delete, class: 'destroy' %>
+            <% if !violation.approved? %>
+              <%= link_to ' | Approve', violation_path(violation, :update_type => "approve"), data: {confirm: 'Are you sure you want to approve this mess?'}, method: :put, class: 'approve'  %>
+            <% end %>
+          <% end %>
+         </span>
       </div>
-    <% end %>
+      <!-- Cleaned Mess Section -->
+      
+      <%if violation.status=="closed" %>
+        <div class="mess-list-cleaned-img">
+          <%= image_tag violation.image_after.url(:thumb) %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
